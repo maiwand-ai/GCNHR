@@ -1,85 +1,142 @@
-const translations = {
-  en: {
-    skip: "Skip to content", brandDescriptor: "Geneva Center for Negotiations<br>and Human Rights", navAbout: "About", navPriorities: "Our priorities", navApproach: "Our approach", navContact: "Contact",
-    heroEyebrow: "GENEVA · SWITZERLAND", heroTitle: "Geneva Center for Negotiations and Human Rights", heroIntro: "Building common ground through dialogue, advancing human dignity, and opening space for a more peaceful future.", heroAction: "Explore our priorities", heroSecondary: "Who we are", heroNote: "Independent. Non-partisan. Non-profit.", heroCaption: "A meeting place for ideas and understanding",
-    ribbonOne: "DIALOGUE", ribbonTwo: "HUMAN DIGNITY", ribbonThree: "PEACE", ribbonFour: "JUSTICE",
-    aboutEyebrow: "A SHARED PURPOSE", aboutTitle: "Where dialogue meets human dignity.", aboutBody: "GCNHR is an independent, non-profit association based in Geneva. We create a platform for dialogue, research, documentation and cooperation among Afghan communities, civil society, human rights defenders, legal professionals, researchers and international partners.", aboutLink: "Discover our approach",
-    prioritiesEyebrow: "WHAT GUIDES OUR WORK", prioritiesTitle: "Rights. Dialogue. A fairer future.", prioritiesIntro: "Our statutes set out a public-interest mission with particular attention to the situation and voices of the Afghan people.", priorityOneTitle: "Human rights for all", priorityOneBody: "Promote fundamental freedoms, equality and dignity, with particular attention to the rights and participation of Afghan women and girls.", priorityOneTag: "DIGNITY · EQUALITY", priorityTwoTitle: "Dialogue & negotiation", priorityTwoBody: "Make room for consultation, communication and peaceful engagement across Afghan communities and with relevant partners.", priorityTwoTag: "LISTENING · COMMON GROUND", priorityThreeTitle: "Research for understanding", priorityThreeBody: "Document and analyse human rights concerns, and support informed, peaceful approaches to justice and conflict prevention.", priorityThreeTag: "RESEARCH · JUSTICE",
-    approachPhotoCaption: "Different perspectives. Shared responsibility.", approachEyebrow: "HOW WE MOVE FORWARD", approachTitle: "A platform for exchange, grounded in independence.", approachBody: "We connect people and institutions through constructive cooperation. Our work is guided by non-partisanship, inclusion and a commitment to public benefit.", approachOne: "Bring Afghan voices into international dialogue", approachTwo: "Strengthen cooperation across civil society and institutions", approachThree: "Support peaceful, civic paths to justice",
-    closingEyebrow: "BASED IN GENEVA · CONNECTED ACROSS BORDERS", closingTitle: "Lasting progress begins when people can be heard.", closingBody: "GCNHR is established in Geneva, Switzerland, and works toward cooperation with people and institutions in Afghanistan and internationally.", statutesAction: "Read our statutes", footerMotto: "Dialogue opens a way forward.", footerLocation: "Geneva, Switzerland", footerNote: "Independent · Non-profit · Public interest", backToTop: "Back to top ↑"
-  },
-  fr: {
-    skip: "Aller au contenu", brandDescriptor: "Centre de Genève pour les négociations<br>et les droits humains", navAbout: "À propos", navPriorities: "Nos priorités", navApproach: "Notre approche", navContact: "Contact",
-    heroEyebrow: "GENÈVE · SUISSE", heroTitle: "Centre de Genève pour les négociations et les droits humains", heroIntro: "Créer des espaces de dialogue, faire progresser la dignité humaine et ouvrir la voie à un avenir plus pacifique.", heroAction: "Découvrir nos priorités", heroSecondary: "Qui sommes-nous ?", heroNote: "Indépendant. Non partisan. À but non lucratif.", heroCaption: "Un lieu de rencontre pour les idées et la compréhension",
-    ribbonOne: "DIALOGUE", ribbonTwo: "DIGNITÉ HUMAINE", ribbonThree: "PAIX", ribbonFour: "JUSTICE",
-    aboutEyebrow: "UN OBJECTIF COMMUN", aboutTitle: "Là où le dialogue rejoint la dignité humaine.", aboutBody: "Le GCNHR est une association indépendante à but non lucratif basée à Genève. Nous créons une plateforme de dialogue, de recherche, de documentation et de coopération entre les communautés afghanes, la société civile, les défenseurs des droits humains, les juristes, les chercheurs et les partenaires internationaux.", aboutLink: "Découvrir notre approche",
-    prioritiesEyebrow: "CE QUI GUIDE NOTRE ACTION", prioritiesTitle: "Droits. Dialogue. Un avenir plus juste.", prioritiesIntro: "Nos statuts définissent une mission d'intérêt public, avec une attention particulière à la situation et aux voix du peuple afghan.", priorityOneTitle: "Les droits humains pour tous", priorityOneBody: "Promouvoir les libertés fondamentales, l'égalité et la dignité, en portant une attention particulière aux droits et à la participation des femmes et des filles afghanes.", priorityOneTag: "DIGNITÉ · ÉGALITÉ", priorityTwoTitle: "Dialogue et négociation", priorityTwoBody: "Créer un espace de consultation, de communication et d'engagement pacifique entre les communautés afghanes et avec les partenaires concernés.", priorityTwoTag: "ÉCOUTE · TERRAIN COMMUN", priorityThreeTitle: "La recherche pour comprendre", priorityThreeBody: "Documenter et analyser les enjeux des droits humains, et soutenir des approches éclairées et pacifiques de la justice et de la prévention des conflits.", priorityThreeTag: "RECHERCHE · JUSTICE",
-    approachPhotoCaption: "Des perspectives différentes. Une responsabilité partagée.", approachEyebrow: "NOTRE FAÇON D'AVANCER", approachTitle: "Une plateforme d'échange fondée sur l'indépendance.", approachBody: "Nous rapprochons les personnes et les institutions par une coopération constructive. Notre action est guidée par le non-partisanisme, l'inclusion et l'intérêt public.", approachOne: "Faire entendre les voix afghanes dans le dialogue international", approachTwo: "Renforcer la coopération entre la société civile et les institutions", approachThree: "Soutenir des voies pacifiques et civiques vers la justice",
-    closingEyebrow: "BASÉ À GENÈVE · RELIÉ AU-DELÀ DES FRONTIÈRES", closingTitle: "Le progrès durable commence quand chacun peut se faire entendre.", closingBody: "Le GCNHR est établi à Genève, en Suisse, et œuvre pour la coopération avec des personnes et des institutions en Afghanistan et à l'international.", statutesAction: "Lire nos statuts", footerMotto: "Le dialogue ouvre la voie.", footerLocation: "Genève, Suisse", footerNote: "Indépendant · À but non lucratif · Intérêt public", backToTop: "Retour en haut ↑"
-  },
-  fa: {
-    skip: "رفتن به محتوای اصلی", brandDescriptor: "مرکز ژنو برای مذاکره<br>و حقوق بشر", navAbout: "درباره ما", navPriorities: "اولویت‌های ما", navApproach: "رویکرد ما", navContact: "تماس",
-    heroEyebrow: "ژنو · سوئیس", heroTitle: "مرکز ژنو برای مذاکره و حقوق بشر", heroIntro: "ایجاد زمینهٔ مشترک از راه گفت‌وگو، پاسداری از کرامت انسانی و گشودن راهی به سوی آینده‌ای صلح‌آمیزتر.", heroAction: "آشنایی با اولویت‌های ما", heroSecondary: "ما که هستیم", heroNote: "مستقل. غیرحزبی. غیرانتفاعی.", heroCaption: "جایی برای دیدار اندیشه‌ها و درک متقابل",
-    ribbonOne: "گفت‌وگو", ribbonTwo: "کرامت انسانی", ribbonThree: "صلح", ribbonFour: "عدالت",
-    aboutEyebrow: "هدف مشترک", aboutTitle: "جایی که گفت‌وگو با کرامت انسانی پیوند می‌خورد.", aboutBody: "GCNHR انجمنی مستقل و غیرانتفاعی است که در ژنو فعالیت می‌کند. ما بستری برای گفت‌وگو، پژوهش، مستندسازی و همکاری میان جوامع افغان، نهادهای جامعهٔ مدنی، مدافعان حقوق بشر، متخصصان حقوقی، پژوهشگران و شرکای بین‌المللی فراهم می‌کنیم.", aboutLink: "آشنایی با رویکرد ما",
-    prioritiesEyebrow: "راهنمای فعالیت ما", prioritiesTitle: "حقوق. گفت‌وگو. آینده‌ای عادلانه‌تر.", prioritiesIntro: "اساسنامهٔ ما مأموریتی در راستای منافع عمومی تعریف می‌کند که به وضعیت و صدای مردم افغانستان توجه ویژه دارد.", priorityOneTitle: "حقوق بشر برای همه", priorityOneBody: "پیشبرد آزادی‌های بنیادین، برابری و کرامت، با توجه ویژه به حقوق و مشارکت زنان و دختران افغان.", priorityOneTag: "کرامت · برابری", priorityTwoTitle: "گفت‌وگو و مذاکره", priorityTwoBody: "فراهم‌کردن زمینه برای مشورت، ارتباط و تعامل مسالمت‌آمیز میان جوامع افغان و شرکای مرتبط.", priorityTwoTag: "شنیدن · زمینهٔ مشترک", priorityThreeTitle: "پژوهش برای درک بهتر", priorityThreeBody: "مستندسازی و تحلیل مسائل حقوق بشر و پشتیبانی از رویکردهای آگاهانه و مسالمت‌آمیز به عدالت و پیشگیری از منازعه.", priorityThreeTag: "پژوهش · عدالت",
-    approachPhotoCaption: "دیدگاه‌های گوناگون. مسئولیت مشترک.", approachEyebrow: "چگونه پیش می‌رویم", approachTitle: "بستری برای تبادل نظر، بر پایهٔ استقلال.", approachBody: "ما از راه همکاری سازنده، مردم و نهادها را به هم پیوند می‌دهیم. فعالیت ما بر بی‌طرفی سیاسی، فراگیری و تعهد به منافع عمومی استوار است.", approachOne: "بازتاب‌دادن صدای افغان‌ها در گفت‌وگوهای بین‌المللی", approachTwo: "تقویت همکاری میان جامعهٔ مدنی و نهادها", approachThree: "پشتیبانی از راه‌های مسالمت‌آمیز و مدنی برای عدالت",
-    closingEyebrow: "مستقر در ژنو · پیوندخورده فراتر از مرزها", closingTitle: "پیشرفت پایدار از شنیده‌شدن صدای مردم آغاز می‌شود.", closingBody: "GCNHR در ژنو، سوئیس تأسیس شده و برای همکاری با مردم و نهادها در افغانستان و سطح بین‌المللی تلاش می‌کند.", statutesAction: "مطالعهٔ اساسنامه", footerMotto: "گفت‌وگو راه را می‌گشاید.", footerLocation: "ژنو، سوئیس", footerNote: "مستقل · غیرانتفاعی · در راستای منافع عمومی", backToTop: "بازگشت به بالا ↑"
-  },
-  ps: {
-    skip: "منځپانګې ته لاړ شئ", brandDescriptor: "د خبرو اترو او بشري حقونو<br>د جنیوا مرکز", navAbout: "زموږ په اړه", navPriorities: "زموږ لومړیتوبونه", navApproach: "زموږ تګلاره", navContact: "اړیکه",
-    heroEyebrow: "جنیوا · سویس", heroTitle: "د خبرو اترو او بشري حقونو د جنیوا مرکز", heroIntro: "د خبرو اترو له لارې ګډ تفاهم رامنځته کول، د انساني کرامت پیاوړتیا او د لا سوله‌ییز راتلونکي لپاره لار پرانیستل.", heroAction: "زموږ لومړیتوبونه وګورئ", heroSecondary: "موږ څوک یو", heroNote: "خپلواک. بې‌طرفه. غیرانتفاعي.", heroCaption: "د نظرونو او متقابل تفاهم د لیدنې ځای",
-    ribbonOne: "خبرې اترې", ribbonTwo: "انساني کرامت", ribbonThree: "سوله", ribbonFour: "عدالت",
-    aboutEyebrow: "ګډ هدف", aboutTitle: "چېرې چې خبرې اترې له انساني کرامت سره یوځای کېږي.", aboutBody: "GCNHR په جنیوا کې یو خپلواک او غیرانتفاعي بنسټ دی. موږ د افغانانو د ټولنو، مدني ټولنې، د بشري حقونو د مدافعانو، حقوقي متخصصانو، څېړونکو او نړیوالو شریکانو ترمنځ د خبرو اترو، څېړنې، مستندسازۍ او همکارۍ لپاره یو چوکاټ برابروو.", aboutLink: "زموږ له تګلارې سره بلد شئ",
-    prioritiesEyebrow: "زموږ د کار لارښود", prioritiesTitle: "حقونه. خبرې اترې. عادلانه راتلونکی.", prioritiesIntro: "زموږ اساسنامه د عامه ګټو لپاره یو ماموریت ټاکي او د افغانانو وضعیت او غږ ته ځانګړې پاملرنه کوي.", priorityOneTitle: "د ټولو لپاره بشري حقونه", priorityOneBody: "د بنسټیزو ازادیو، برابرۍ او کرامت ملاتړ، په ځانګړي ډول د افغان ښځو او نجونو حقونو او ګډون ته پاملرنه.", priorityOneTag: "کرامت · برابري", priorityTwoTitle: "خبرې اترې او مذاکره", priorityTwoBody: "د افغان ټولنو او اړوندو شریکانو ترمنځ د سلا، اړیکو او سوله‌ییز تعامل لپاره زمینه برابرول.", priorityTwoTag: "اورېدل · ګډ تفاهم", priorityThreeTitle: "د پوهېدو لپاره څېړنه", priorityThreeBody: "د بشري حقونو د اندېښنو مستندسازي او شننه، او د عدالت او شخړو د مخنیوي لپاره د سوله‌ییزو او باخبره لارو ملاتړ.", priorityThreeTag: "څېړنه · عدالت",
-    approachPhotoCaption: "بېلابېل لیدلوري. ګډ مسؤلیت.", approachEyebrow: "څنګه پرمخ ځو", approachTitle: "د خپلواکۍ پر بنسټ د نظرونو د تبادلې چوکاټ.", approachBody: "موږ د رغنده همکارۍ له لارې خلک او بنسټونه سره نښلوو. زموږ کار د سیاسي بې‌طرفۍ، ټول‌شموله‌توب او عامه ګټو ته د ژمنتیا له مخې پرمخ ځي.", approachOne: "په نړیوالو خبرو اترو کې د افغانانو د غږ ورګډول", approachTwo: "د مدني ټولنې او بنسټونو ترمنځ د همکارۍ پیاوړتیا", approachThree: "د عدالت لپاره د سوله‌ییزو او مدني لارو ملاتړ",
-    closingEyebrow: "په جنیوا کې مېشت · له پولو هاخوا تړلی", closingTitle: "تلپاتې پرمختګ هغه وخت پیلېږي چې د خلکو غږ واورېدل شي.", closingBody: "GCNHR په جنیوا، سویس کې جوړ شوی او په افغانستان او نړیواله کچه له خلکو او بنسټونو سره د همکارۍ لپاره کار کوي.", statutesAction: "زموږ اساسنامه ولولئ", footerMotto: "خبرې اترې د پرمختګ لار پرانیزي.", footerLocation: "جنیوا، سویس", footerNote: "خپلواک · غیرانتفاعي · د عامه ګټو لپاره", backToTop: "بېرته سر ته ↑"
-  },
-  uz: {
-    skip: "Asosiy mazmunga o‘tish", brandDescriptor: "Jeneva muzokaralar va<br>inson huquqlari markazi", navAbout: "Markaz haqida", navPriorities: "Ustuvor yo‘nalishlar", navApproach: "Yondashuvimiz", navContact: "Aloqa",
-    heroEyebrow: "JENEVA · SHVEYTSARIYA", heroTitle: "Jeneva muzokaralar va inson huquqlari markazi", heroIntro: "Muloqot orqali umumiy nuqtalarni topish, inson qadr-qimmatini yuksaltirish va tinchroq kelajak uchun imkon yaratish.", heroAction: "Ustuvor yo‘nalishlarimiz", heroSecondary: "Biz kimmiz", heroNote: "Mustaqil. Betaraf. Notijorat.", heroCaption: "Fikrlar va o‘zaro anglashuv uchrashadigan maskan",
-    ribbonOne: "MULOQOT", ribbonTwo: "INSON QADRI", ribbonThree: "TINCHLIK", ribbonFour: "ADOLAT",
-    aboutEyebrow: "UMUMIY MAQSAD", aboutTitle: "Muloqot va inson qadr-qimmati uchrashgan nuqta.", aboutBody: "GCNHR Jenevada joylashgan mustaqil, notijorat uyushmadir. Biz afg‘on jamoalari, fuqarolik jamiyati, inson huquqlari himoyachilari, huquqshunoslar, tadqiqotchilar va xalqaro hamkorlar o‘rtasida muloqot, tadqiqot, hujjatlashtirish va hamkorlik uchun maydon yaratamiz.", aboutLink: "Yondashuvimiz bilan tanishing",
-    prioritiesEyebrow: "FAOLIYATIMIZ YO‘NALISHLARI", prioritiesTitle: "Huquqlar. Muloqot. Adolatli kelajak.", prioritiesIntro: "Ustavimiz jamoat manfaatlariga xizmat qilishni belgilaydi va afg‘on xalqining holati hamda ovoziga alohida e’tibor qaratadi.", priorityOneTitle: "Barcha uchun inson huquqlari", priorityOneBody: "Asosiy erkinliklar, tenglik va qadr-qimmatni ilgari surish; afg‘on ayollari va qizlarining huquqlari hamda ishtirokiga alohida e’tibor berish.", priorityOneTag: "QADR-QIMMAT · TENGLIK", priorityTwoTitle: "Muloqot va muzokara", priorityTwoBody: "Afg‘on jamoalari va tegishli hamkorlar o‘rtasida maslahatlashuv, muloqot va tinch hamkorlik uchun imkon yaratish.", priorityTwoTag: "TINGLASH · UMUMIY NUQTA", priorityThreeTitle: "Tushunish uchun tadqiqot", priorityThreeBody: "Inson huquqlariga oid muammolarni hujjatlashtirish va tahlil qilish, adolat hamda nizolarning oldini olishga qaratilgan tinch yondashuvlarni qo‘llab-quvvatlash.", priorityThreeTag: "TADQIQOT · ADOLAT",
-    approachPhotoCaption: "Turli qarashlar. Umumiy mas’uliyat.", approachEyebrow: "OLDINGA QANDAY BORAMIZ", approachTitle: "Mustaqillikka tayangan fikr almashish maydoni.", approachBody: "Konstruktiv hamkorlik orqali insonlar va muassasalarni bog‘laymiz. Ishimiz betaraflik, inklyuzivlik va jamoat manfaatlariga sodiqlik tamoyillariga asoslanadi.", approachOne: "Afg‘onlarning ovozini xalqaro muloqotga olib chiqish", approachTwo: "Fuqarolik jamiyati va muassasalar o‘rtasidagi hamkorlikni kuchaytirish", approachThree: "Adolat yo‘lidagi tinch va fuqaroviy tashabbuslarni qo‘llash",
-    closingEyebrow: "JENEVADA JOYLASHGAN · CHEGARALARDAN TASHQARIDA HAMKOR", closingTitle: "Barqaror taraqqiyot insonlar tinglanganida boshlanadi.", closingBody: "GCNHR Shveytsariyaning Jeneva shahrida tashkil etilgan bo‘lib, Afg‘onistonda va xalqaro miqyosda insonlar hamda muassasalar bilan hamkorlik qilishga intiladi.", statutesAction: "Ustavimizni o‘qing", footerMotto: "Muloqot oldinga yo‘l ochadi.", footerLocation: "Jeneva, Shveytsariya", footerNote: "Mustaqil · Notijorat · Jamoat manfaatlari uchun", backToTop: "Yuqoriga ↑"
-  }
-};
+// Contact address used by the email link and the contact form.
+const CONTACT_EMAIL = "info@gcnhr.org";
 
-const languageSelect = document.querySelector("#language-select");
+const RTL_LANGUAGES = new Set(["fa", "ps"]);
+const HTML_LANG = { en: "en", fr: "fr", fa: "fa-AF", ps: "ps", uz: "uz" };
+const STORAGE_KEY = "gcnhr-language";
+
+const header = document.getElementById("site-header");
+const nav = document.getElementById("primary-nav");
 const menuToggle = document.querySelector(".menu-toggle");
-const primaryNav = document.querySelector("#primary-nav");
-const rtlLanguages = new Set(["fa", "ps"]);
+const langButtons = document.querySelectorAll("[data-lang]");
+let currentLanguage = "en";
 
-function setLanguage(language) {
-  const dictionary = translations[language] || translations.en;
-  document.documentElement.lang = language;
-  document.documentElement.dir = rtlLanguages.has(language) ? "rtl" : "ltr";
-  document.title = `${dictionary.heroTitle.replace(/<[^>]*>/g, "")} | GCNHR`;
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    const value = dictionary[element.dataset.i18n];
-    if (value !== undefined) element.innerHTML = value;
-  });
-  localStorage.setItem("gcnhr-language", language);
+function t(key) {
+  return (TRANSLATIONS[currentLanguage] && TRANSLATIONS[currentLanguage][key]) ?? TRANSLATIONS.en[key] ?? "";
 }
 
-const savedLanguage = localStorage.getItem("gcnhr-language");
-if (savedLanguage && translations[savedLanguage]) languageSelect.value = savedLanguage;
-setLanguage(languageSelect.value);
-languageSelect.addEventListener("change", (event) => setLanguage(event.target.value));
-document.querySelector("#year").textContent = new Date().getFullYear();
+function readStoredLanguage() {
+  try { return localStorage.getItem(STORAGE_KEY); } catch { return null; }
+}
+
+function storeLanguage(language) {
+  try { localStorage.setItem(STORAGE_KEY, language); } catch { /* storage unavailable */ }
+}
+
+function setLanguage(language, { persist = true } = {}) {
+  if (!TRANSLATIONS[language]) language = "en";
+  currentLanguage = language;
+
+  const root = document.documentElement;
+  root.lang = HTML_LANG[language];
+  root.dir = RTL_LANGUAGES.has(language) ? "rtl" : "ltr";
+
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const value = t(el.dataset.i18n);
+    if (value) el.textContent = value;
+  });
+
+  const easternDigits = RTL_LANGUAGES.has(language);
+  document.querySelectorAll("[data-num]").forEach((el) => {
+    el.textContent = easternDigits ? el.dataset.num.replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]).replace("%", "٪") : el.dataset.num;
+  });
+
+  document.title = `GCNHR | ${t("brandName")}`;
+  document.querySelector('meta[name="description"]')?.setAttribute("content", t("heroLead"));
+  menuToggle.setAttribute("aria-label", t("menu"));
+
+  langButtons.forEach((btn) => btn.setAttribute("aria-pressed", String(btn.dataset.lang === language)));
+
+  try {
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", language);
+    history.replaceState(null, "", url);
+  } catch { /* some browsers block this on pages opened from disk */ }
+
+  if (persist) storeLanguage(language);
+}
+
+langButtons.forEach((btn) => btn.addEventListener("click", () => setLanguage(btn.dataset.lang)));
+
+const urlLanguage = new URLSearchParams(window.location.search).get("lang");
+setLanguage(urlLanguage || readStoredLanguage() || "en", { persist: Boolean(urlLanguage) });
+
+// Header background once the page scrolls past the hero top.
+const updateHeader = () => header.classList.toggle("is-scrolled", window.scrollY > 40);
+updateHeader();
+window.addEventListener("scroll", updateHeader, { passive: true });
+
+// Mobile menu.
+function closeMenu() {
+  menuToggle.setAttribute("aria-expanded", "false");
+  nav.classList.remove("is-open");
+  header.classList.remove("menu-open");
+}
 
 menuToggle.addEventListener("click", () => {
-  const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-  menuToggle.setAttribute("aria-expanded", String(!isOpen));
-  menuToggle.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
-  primaryNav.classList.toggle("is-open", !isOpen);
+  const open = menuToggle.getAttribute("aria-expanded") !== "true";
+  menuToggle.setAttribute("aria-expanded", String(open));
+  nav.classList.toggle("is-open", open);
+  header.classList.toggle("menu-open", open);
+});
+nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+
+// Highlight the nav link for the section in view.
+const navLinks = [...nav.querySelectorAll('a[href^="#"]')];
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    navLinks.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === `#${entry.target.id}`));
+  });
+}, { rootMargin: "-45% 0px -50% 0px" });
+navLinks.forEach((a) => {
+  const section = document.querySelector(a.getAttribute("href"));
+  if (section) sectionObserver.observe(section);
 });
 
-primaryNav.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open menu");
-    primaryNav.classList.remove("is-open");
+// Fade sections in as they enter the viewport.
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0, rootMargin: "0px 0px -40px 0px" });
+  document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+  document.documentElement.classList.add("reveal-ready");
+}
+
+// Contact form: validate, then open the visitor's email client with the message filled in.
+const form = document.getElementById("contact-form");
+const note = document.getElementById("form-note");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const fields = ["name", "email", "message"].map((name) => form.elements[name]);
+  let valid = true;
+  fields.forEach((field) => {
+    const ok = field.value.trim() !== "" && field.checkValidity();
+    field.classList.toggle("is-invalid", !ok);
+    field.setAttribute("aria-invalid", String(!ok));
+    if (!ok) valid = false;
   });
+
+  note.classList.toggle("is-error", !valid);
+  if (!valid) {
+    note.textContent = t("formError");
+    fields.find((f) => f.classList.contains("is-invalid"))?.focus();
+    return;
+  }
+
+  const topic = form.elements.topic;
+  const subject = `[GCNHR] ${topic.options[topic.selectedIndex].text}`;
+  const body = `${form.elements.message.value.trim()}\n\n— ${form.elements.name.value.trim()} <${form.elements.email.value.trim()}>`;
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  note.textContent = t("formSuccess");
 });
+
+document.querySelectorAll(".js-email").forEach((a) => { a.href = `mailto:${CONTACT_EMAIL}`; a.textContent = CONTACT_EMAIL; });
+document.getElementById("year").textContent = new Date().getFullYear();

@@ -1,156 +1,410 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f7f8f4">
-    <meta name="description" content="The Geneva Center for Negotiations and Human Rights is an independent nonprofit working to advance human rights, dialogue and social justice, with particular attention to Afghanistan.">
-    <title>GCNHR | Dialogue, dignity, and a just peace</title>
+    <meta name="theme-color" content="#0f2e1f">
+    <meta name="description" content="The Geneva Center for Negotiations and Human Rights (GCNHR) is an independent, non-profit association in Geneva promoting human rights, negotiation, peace and social justice, with particular attention to the Afghan people.">
+    <title>GCNHR | Geneva Center for Negotiations and Human Rights</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="assets/img/favicon.png">
+    <meta property="og:title" content="Geneva Center for Negotiations and Human Rights">
+    <meta property="og:description" content="Dialogue that protects dignity. Negotiation that builds peace.">
+    <meta property="og:image" content="assets/img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Vazirmatn:wght@400;500;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/img/hero-negotiation.webp">
     <link rel="stylesheet" href="styles.css">
+    <script src="translations.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-women" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.5"/><path d="M12 12.5v8M8.5 17.5h7"/></symbol>
+        <symbol id="i-dialogue" viewBox="0 0 24 24"><path d="M3.5 5.5h11v7h-6l-3.5 3v-3h-1.5z"/><path d="M14.5 9h6v7h-1.5v3l-3.5-3h-4.5v-3.5"/></symbol>
+        <symbol id="i-research" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5.5 5.5M8 10.5h5M10.5 8v5"/></symbol>
+        <symbol id="i-peace" viewBox="0 0 24 24"><path d="M4 13c3-1 5.5-4 6-8 2 2 2.5 5 1.5 7.5 2.5-1.5 5.5-1.5 8.5 0-2.5 4-7 6.5-12 6.5H4z"/><path d="M4 19c4-3 7-5 9-9"/></symbol>
+        <symbol id="i-child" viewBox="0 0 24 24"><path d="M4 6.5c3-1.5 5.5-1.5 8 0v13c-2.5-1.5-5-1.5-8 0zM12 6.5c2.5-1.5 5-1.5 8 0v13c-3-1.5-5.5-1.5-8 0"/></symbol>
+        <symbol id="i-voice" viewBox="0 0 24 24"><path d="M4 9.5v5h3.5l5.5 4v-13l-5.5 4z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.5 3.5 5.5 3.5 8.5s-1 6-3.5 8.5c-2.5-2.5-3.5-5.5-3.5-8.5s1-6 3.5-8.5"/></symbol>
+        <symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="5.5" r="2.5"/><circle cx="5" cy="17.5" r="2.5"/><circle cx="19" cy="17.5" r="2.5"/><path d="m10.8 7.7-4.6 7.6M13.2 7.7l4.6 7.6M7.5 17.5h9"/></symbol>
+        <symbol id="i-table" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="6" ry="3.5"/><circle cx="12" cy="4" r="1.6"/><circle cx="12" cy="20" r="1.6"/><circle cx="3" cy="12" r="1.6"/><circle cx="21" cy="12" r="1.6"/></symbol>
+        <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3.5h8l4 4v13H6z"/><path d="M14 3.5v4h4M9 12h6M9 15.5h6"/></symbol>
+        <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M4 10v4h3l9 4.5v-13L7 10z"/><path d="M7 14l1.5 5.5h2.5L10 15.2M19 10v4"/></symbol>
+        <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m2.5 11 4-4.5 3.5 1.5 3-1.5 5 2 3.5 3"/><path d="m21.5 11.5-5.5 5.5c-.8.8-2 .8-2.8 0L7 11"/><path d="M10 8l-2.5 3c-.6.8.2 2 1.2 1.6L12 11l4.5 4M2.5 11l4.5 4.5"/></symbol>
+        <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4.5h10.5a3 3 0 0 1 3 3v12H8a3 3 0 0 1-3-3z"/><path d="M5 16.5a3 3 0 0 1 3-3h10.5M9 8h6"/></symbol>
+        <symbol id="i-cap" viewBox="0 0 24 24"><path d="m2.5 9 9.5-4.5L21.5 9 12 13.5z"/><path d="M6.5 11v5c3.5 2.5 7.5 2.5 11 0v-5M21.5 9v5"/></symbol>
+        <symbol id="i-dove" viewBox="0 0 24 24"><path d="M3 18c5 0 9-2 11-6l6.5-5.5-4-.5c-1.5-1-3.5-.5-4.5 1L9 12C7 10 5.5 7 5.5 4 3 6 2.5 10 5 13z"/></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.5 3 8 7.5 9.5 4.5-1.5 7.5-5 7.5-9.5V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+        <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 4v16M7 20h10M5 7h14M5 7l-3 6.5a3 3 0 0 0 6 0zM19 7l-3 6.5a3 3 0 0 0 6 0z"/></symbol>
+        <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+        <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-8-4.8-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5C20 15.2 12 20 12 20z"/></symbol>
+        <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14c3 0 5 2 5 5"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      </defs>
+    </svg>
+
     <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="brand" href="#top" aria-label="GCNHR home">
-          <span class="brand-mark"><img src="Correct%20logo/2.png" alt="" fetchpriority="high"></span>
-          <span class="brand-name"><strong>GCNHR</strong><span data-i18n="brandDescriptor">Geneva Center for Negotiations<br>and Human Rights</span></span>
+
+    <header class="site-header" id="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="GCNHR">
+          <img class="brand-emblem" src="assets/img/emblem.webp" width="56" height="56" alt="">
+          <span class="brand-text">
+            <strong>GCNHR</strong>
+            <span data-i18n="brandName">Geneva Center for Negotiations and Human Rights</span>
+          </span>
         </a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
-          <span></span><span></span>
-        </button>
-        <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+
+        <nav class="primary-nav" id="primary-nav" aria-label="Main">
           <a href="#about" data-i18n="navAbout">About</a>
-          <a href="#priorities" data-i18n="navPriorities">Our priorities</a>
-          <a href="#approach" data-i18n="navApproach">Our approach</a>
-          <a href="#contact" data-i18n="navContact">Contact</a>
-          <label class="language-picker" aria-label="Choose language">
-            <span class="language-glyph" aria-hidden="true">文</span>
-            <select id="language-select">
-              <option value="en">EN</option>
-              <option value="fr">FR</option>
-              <option value="fa">دری</option>
-              <option value="ps">پښتو</option>
-              <option value="uz">UZ</option>
-            </select>
-          </label>
+          <a href="#mission" data-i18n="navMission">Mission</a>
+          <a href="#work" data-i18n="navWork">Our work</a>
+          <a href="#geneva" data-i18n="navGeneva">Geneva</a>
+          <a href="#governance" data-i18n="navGovernance">Governance</a>
+          <a class="nav-cta" href="#involved" data-i18n="navInvolved">Get involved</a>
         </nav>
+
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="en" lang="en">EN</button>
+          <button type="button" data-lang="fr" lang="fr">FR</button>
+          <button type="button" data-lang="fa" lang="fa-AF">دری</button>
+          <button type="button" data-lang="ps" lang="ps">پښتو</button>
+          <button type="button" data-lang="uz" lang="uz">UZ</button>
+        </div>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+          <span class="sr-only" data-i18n="menu">Menu</span>
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
       </div>
     </header>
 
     <main id="main">
+      <!-- HERO -->
       <section class="hero" id="top">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="heroEyebrow">GENEVA · SWITZERLAND</span></p>
-          <h1 data-i18n="heroTitle">Geneva Center for Negotiations and Human Rights</h1>
-          <p class="hero-intro" data-i18n="heroIntro">Building common ground through dialogue, advancing human dignity, and opening space for a more peaceful future.</p>
+        <img class="hero-bg" src="assets/img/hero-negotiation.webp" alt="" fetchpriority="high">
+        <div class="hero-shade"></div>
+        <div class="container hero-content">
+          <p class="eyebrow eyebrow-light" data-i18n="heroEyebrow">Geneva · Switzerland · Founded 2026</p>
+          <h1 data-i18n="heroTitle">Dialogue that protects dignity. Negotiation that builds peace.</h1>
+          <p class="hero-lead" data-i18n="heroLead">An independent, non-profit association promoting human rights, negotiation and social justice, with particular attention to the situation of the Afghan people.</p>
           <div class="hero-actions">
-            <a class="button button-dark" href="#priorities"><span data-i18n="heroAction">Explore our priorities</span><span class="arrow" aria-hidden="true">↗</span></a>
-            <a class="text-link" href="#about" data-i18n="heroSecondary">Who we are</a>
+            <a class="btn btn-gold" href="#mission"><span data-i18n="heroCta1">Explore our mission</span><svg class="icon flip"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-ghost" href="#involved" data-i18n="heroCta2">Get involved</a>
           </div>
-          <div class="hero-note"><span class="note-rule"></span><span data-i18n="heroNote">Independent. Non-partisan. Non-profit.</span></div>
-        </div>
-        <div class="hero-image-wrap">
-          <img class="hero-image" src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1600&q=85" alt="" fetchpriority="high">
-          <div class="image-caption"><span class="caption-dot"></span><span data-i18n="heroCaption">A meeting place for ideas and understanding</span></div>
-          <div class="image-index" aria-hidden="true">01 <span></span> 05</div>
-        </div>
-      </section>
-
-      <div class="values-ribbon" aria-label="GCNHR focus">
-        <span data-i18n="ribbonOne">DIALOGUE</span><i></i><span data-i18n="ribbonTwo">HUMAN DIGNITY</span><i></i><span data-i18n="ribbonThree">PEACE</span><i></i><span data-i18n="ribbonFour">JUSTICE</span>
-      </div>
-
-      <section class="section about-section" id="about">
-        <div class="section-heading">
-          <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="aboutEyebrow">A SHARED PURPOSE</span></p>
-          <h2 data-i18n="aboutTitle">Where dialogue meets human dignity.</h2>
-        </div>
-        <div class="about-copy">
-          <p data-i18n="aboutBody">GCNHR is an independent, non-profit association based in Geneva. We create a platform for dialogue, research, documentation and cooperation among Afghan communities, civil society, human rights defenders, legal professionals, researchers and international partners.</p>
-          <a class="underlined-link" href="#approach"><span data-i18n="aboutLink">Discover our approach</span><span aria-hidden="true">↗</span></a>
-        </div>
-      </section>
-
-      <section class="priorities-section" id="priorities">
-        <div class="section section-inner">
-          <div class="priorities-heading">
-            <div>
-              <p class="eyebrow eyebrow-light"><span class="eyebrow-line"></span><span data-i18n="prioritiesEyebrow">WHAT GUIDES OUR WORK</span></p>
-              <h2 data-i18n="prioritiesTitle">Rights. Dialogue. A fairer future.</h2>
-            </div>
-            <p class="priorities-intro" data-i18n="prioritiesIntro">Our statutes set out a public-interest mission with particular attention to the situation and voices of the Afghan people.</p>
-          </div>
-          <div class="priority-grid">
-            <article class="priority-item">
-              <span class="priority-number">01</span>
-              <div class="priority-rule"></div>
-              <h3 data-i18n="priorityOneTitle">Human rights for all</h3>
-              <p data-i18n="priorityOneBody">Promote fundamental freedoms, equality and dignity, with particular attention to the rights and participation of Afghan women and girls.</p>
-              <span class="priority-tag" data-i18n="priorityOneTag">DIGNITY · EQUALITY</span>
-            </article>
-            <article class="priority-item">
-              <span class="priority-number">02</span>
-              <div class="priority-rule"></div>
-              <h3 data-i18n="priorityTwoTitle">Dialogue &amp; negotiation</h3>
-              <p data-i18n="priorityTwoBody">Make room for consultation, communication and peaceful engagement across Afghan communities and with relevant partners.</p>
-              <span class="priority-tag" data-i18n="priorityTwoTag">LISTENING · COMMON GROUND</span>
-            </article>
-            <article class="priority-item">
-              <span class="priority-number">03</span>
-              <div class="priority-rule"></div>
-              <h3 data-i18n="priorityThreeTitle">Research for understanding</h3>
-              <p data-i18n="priorityThreeBody">Document and analyse human rights concerns, and support informed, peaceful approaches to justice and conflict prevention.</p>
-              <span class="priority-tag" data-i18n="priorityThreeTag">RESEARCH · JUSTICE</span>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="approach-section section" id="approach">
-        <div class="approach-image-wrap">
-          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85" alt="People sharing ideas around a table" loading="lazy">
-          <span class="photo-credit" data-i18n="approachPhotoCaption">Different perspectives. Shared responsibility.</span>
-        </div>
-        <div class="approach-copy">
-          <p class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="approachEyebrow">HOW WE MOVE FORWARD</span></p>
-          <h2 data-i18n="approachTitle">A platform for exchange, grounded in independence.</h2>
-          <p data-i18n="approachBody">We connect people and institutions through constructive cooperation. Our work is guided by non-partisanship, inclusion and a commitment to public benefit.</p>
-          <ul class="approach-list">
-            <li><span class="list-mark">01</span><span data-i18n="approachOne">Bring Afghan voices into international dialogue</span></li>
-            <li><span class="list-mark">02</span><span data-i18n="approachTwo">Strengthen cooperation across civil society and institutions</span></li>
-            <li><span class="list-mark">03</span><span data-i18n="approachThree">Support peaceful, civic paths to justice</span></li>
+          <ul class="hero-badges">
+            <li data-i18n="badge1">Independent</li>
+            <li data-i18n="badge2">Non-partisan</li>
+            <li data-i18n="badge3">Non-religious</li>
+            <li data-i18n="badge4">Non-profit</li>
           </ul>
         </div>
       </section>
 
-      <section class="closing-section" id="contact">
-        <div class="closing-image">
-          <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1500&q=85" alt="A group in conversation" loading="lazy">
+      <!-- ABOUT -->
+      <section class="section about" id="about">
+        <div class="container about-grid">
+          <div class="about-media reveal">
+            <img class="about-photo" src="assets/img/cooperation.webp" alt="" loading="lazy">
+            <div class="about-logo-card">
+              <img src="assets/img/logo.webp" width="320" height="320" alt="GCNHR logo" loading="lazy">
+            </div>
+          </div>
+          <div class="about-copy reveal">
+            <p class="eyebrow" data-i18n="aboutEyebrow">Who we are</p>
+            <h2 data-i18n="aboutTitle">A platform for dialogue, research and cooperation</h2>
+            <p data-i18n="aboutP1">GCNHR was founded in Geneva in 2026 as a non-profit association under Articles 60 and following of the Swiss Civil Code. Our activities serve the public interest and humanitarian purposes only, never commercial goals.</p>
+            <p data-i18n="aboutP2">We bring together Afghans, civil society organisations, human rights defenders, legal professionals, researchers, academics and international organisations to share knowledge, document realities and pursue peaceful solutions.</p>
+            <dl class="facts">
+              <div><dt data-num="2026">2026</dt><dd data-i18n="fact1">Founded in Geneva</dd></div>
+              <div><dt data-num="8">8</dt><dd data-i18n="fact2">Strategic objectives</dd></div>
+              <div><dt data-num="9">9</dt><dd data-i18n="fact3">Areas of activity</dd></div>
+              <div><dt data-num="100%">100%</dt><dd data-i18n="fact4">Of resources devoted to our mission</dd></div>
+            </dl>
+          </div>
         </div>
-        <div class="closing-content">
-          <p class="eyebrow eyebrow-light"><span class="eyebrow-line"></span><span data-i18n="closingEyebrow">BASED IN GENEVA · CONNECTED ACROSS BORDERS</span></p>
-          <h2 data-i18n="closingTitle">Lasting progress begins when people can be heard.</h2>
-          <p data-i18n="closingBody">GCNHR is established in Geneva, Switzerland, and works toward cooperation with people and institutions in Afghanistan and internationally.</p>
-          <a class="button button-light" href="Geneva%20Center%20for%20Negotiations%20and%20Human%20Rights%20(GCNHR).docx" download><span data-i18n="statutesAction">Read our statutes</span><span class="arrow" aria-hidden="true">↓</span></a>
+      </section>
+
+      <!-- MISSION / OBJECTIVES -->
+      <section class="section mission" id="mission">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="missionEyebrow">Our mission</p>
+            <h2 data-i18n="missionTitle">Eight strategic objectives</h2>
+            <p data-i18n="missionIntro">Our statutes set out eight principal objectives that guide every programme, partnership and publication.</p>
+          </div>
+          <div class="objectives">
+            <article class="objective objective-feature reveal">
+              <img src="assets/img/human-rights.webp" alt="" loading="lazy">
+              <div class="objective-body">
+                <span class="obj-num">01</span>
+                <h3 data-i18n="obj1t">Afghan women's human rights</h3>
+                <p data-i18n="obj1d">Supporting the fundamental rights, freedoms, dignity, equality and meaningful participation of Afghan women and girls.</p>
+              </div>
+            </article>
+            <article class="objective reveal">
+              <svg class="obj-icon"><use href="#i-dialogue"/></svg><span class="obj-num">02</span>
+              <h3 data-i18n="obj2t">Negotiation</h3>
+              <p data-i18n="obj2d">Facilitating dialogue, consultation and peaceful engagement among Afghans and with civil society, legal experts, researchers and international institutions.</p>
+            </article>
+            <article class="objective reveal">
+              <svg class="obj-icon"><use href="#i-research"/></svg><span class="obj-num">03</span>
+              <h3 data-i18n="obj3t">Documentation and research</h3>
+              <p data-i18n="obj3d">Researching, documenting and analysing the human rights situation of Afghans in Afghanistan and abroad, and publishing reports and studies.</p>
+            </article>
+            <article class="objective reveal">
+              <svg class="obj-icon"><use href="#i-dove"/></svg><span class="obj-num">04</span>
+              <h3 data-i18n="obj4t">Peace, social justice and non-discrimination</h3>
+              <p data-i18n="obj4d">Supporting peaceful, civic approaches to preventing and resolving conflict, and preventing violence, discrimination, extremism and injustice.</p>
+            </article>
+            <article class="objective objective-feature reveal">
+              <img src="assets/img/children.webp" alt="" loading="lazy">
+              <div class="objective-body">
+                <span class="obj-num">05</span>
+                <h3 data-i18n="obj5t">Children's rights</h3>
+                <p data-i18n="obj5d">Promoting the rights of Afghan children, and girls in particular, to education, freedom, dignity and protection.</p>
+              </div>
+            </article>
+            <article class="objective reveal">
+              <svg class="obj-icon"><use href="#i-voice"/></svg><span class="obj-num">06</span>
+              <h3 data-i18n="obj6t">Amplifying Afghan voices</h3>
+              <p data-i18n="obj6d">Bringing the legitimate concerns, experiences and aspirations of Afghans into international discussions, conferences and policy forums.</p>
+            </article>
+            <article class="objective reveal">
+              <svg class="obj-icon"><use href="#i-globe"/></svg><span class="obj-num">07</span>
+              <h3 data-i18n="obj7t">Cooperation in international Geneva</h3>
+              <p data-i18n="obj7d">Building constructive cooperation with the United Nations, international organisations, diplomatic missions, academia and human rights bodies.</p>
+            </article>
+            <article class="objective reveal">
+              <svg class="obj-icon"><use href="#i-network"/></svg><span class="obj-num">08</span>
+              <h3 data-i18n="obj8t">Networks among Afghans</h3>
+              <p data-i18n="obj8d">Strengthening networks among Afghans, civil society, researchers and human rights defenders in Switzerland and beyond.</p>
+            </article>
+            <a class="objective objective-cta reveal" href="#work">
+              <p class="eyebrow" data-i18n="objCtaEyebrow">Putting purpose into practice</p>
+              <h3 data-i18n="objCtaTitle">See how we turn these objectives into action</h3>
+              <span class="link-arrow"><span data-i18n="objCtaLink">Our activities</span><svg class="icon flip"><use href="#i-arrow"/></svg></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUOTE BAND -->
+      <section class="quote-band">
+        <img src="assets/img/peace.webp" alt="" loading="lazy">
+        <div class="quote-shade"></div>
+        <div class="container quote-inner reveal">
+          <svg class="quote-mark" viewBox="0 0 48 36" aria-hidden="true"><path d="M0 36V20C0 8 7 1 19 0v7c-6 1.5-9 5.5-9 12h9v17zm29 0V20c0-12 7-19 19-20v7c-6 1.5-9 5.5-9 12h9v17z"/></svg>
+          <blockquote data-i18n="quote">Lasting peace begins when every voice can be heard and every person's dignity is protected.</blockquote>
+          <p class="quote-by" data-i18n="quoteBy">The conviction behind our work</p>
+        </div>
+      </section>
+
+      <!-- ACTIVITIES -->
+      <section class="section work" id="work">
+        <div class="container">
+          <div class="section-head section-head-split reveal">
+            <div>
+              <p class="eyebrow eyebrow-light" data-i18n="workEyebrow">What we do</p>
+              <h2 data-i18n="workTitle">From objectives to action</h2>
+            </div>
+            <p data-i18n="workIntro">Our activities combine dialogue, evidence and advocacy, carried out with partners in Switzerland and around the world.</p>
+          </div>
+          <div class="activities">
+            <article class="activity reveal"><svg class="act-icon"><use href="#i-table"/></svg><h3 data-i18n="act1t">Negotiation platforms</h3><p data-i18n="act1d">Meetings, consultations, roundtables and conferences on Afghanistan and human rights.</p></article>
+            <article class="activity reveal"><svg class="act-icon"><use href="#i-doc"/></svg><h3 data-i18n="act2t">Research and documentation</h3><p data-i18n="act2d">Reports, studies and policy papers based on carefully gathered, publicly available information.</p></article>
+            <article class="activity reveal"><svg class="act-icon"><use href="#i-megaphone"/></svg><h3 data-i18n="act3t">Advocacy and awareness</h3><p data-i18n="act3d">Public discussions, campaigns and education on human rights, women's rights and children's rights.</p></article>
+            <article class="activity reveal"><svg class="act-icon"><use href="#i-globe"/></svg><h3 data-i18n="act4t">International engagement</h3><p data-i18n="act4d">Taking part in United Nations and international forums in Geneva and elsewhere.</p></article>
+            <article class="activity reveal"><svg class="act-icon"><use href="#i-handshake"/></svg><h3 data-i18n="act5t">Partnership and cooperation</h3><p data-i18n="act5d">Working with Swiss and international organisations, universities, research institutes and legal professionals.</p></article>
+            <article class="activity reveal"><svg class="act-icon"><use href="#i-book"/></svg><h3 data-i18n="act6t">Publications</h3><p data-i18n="act6d">Reports, research papers, articles, policy analyses, statements and newsletters.</p></article>
+            <article class="activity reveal"><svg class="act-icon"><use href="#i-cap"/></svg><h3 data-i18n="act7t">Capacity building and training</h3><p data-i18n="act7d">Seminars, workshops and training in human rights, dialogue, negotiation, research and civic participation.</p></article>
+            <article class="activity reveal"><svg class="act-icon"><use href="#i-users"/></svg><h3 data-i18n="act8t">Networking and community</h3><p data-i18n="act8d">Platforms connecting Afghans, human rights defenders, civil society and researchers.</p></article>
+            <article class="activity reveal"><svg class="act-icon"><use href="#i-dove"/></svg><h3 data-i18n="act9t">Promoting peaceful negotiation</h3><p data-i18n="act9d">Initiatives for mutual understanding, reconciliation, social cohesion and non-violent solutions.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="section gallery-section">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="galleryEyebrow">In focus</p>
+            <h2 data-i18n="galleryTitle">The causes we stand for</h2>
+          </div>
+          <div class="gallery">
+            <figure class="g-item g-tall reveal"><img src="assets/img/reconciliation.webp" alt="" loading="lazy"><figcaption data-i18n="g1">Peace and reconciliation</figcaption></figure>
+            <figure class="g-item g-wide reveal"><img src="assets/img/dialogue.webp" alt="" loading="lazy"><figcaption data-i18n="g2">Dialogue across differences</figcaption></figure>
+            <figure class="g-item reveal"><img src="assets/img/education.webp" alt="" loading="lazy"><figcaption data-i18n="g3">Every child's right to learn</figcaption></figure>
+            <figure class="g-item reveal"><img src="assets/img/research.webp" alt="" loading="lazy"><figcaption data-i18n="g4">Evidence and documentation</figcaption></figure>
+            <figure class="g-item g-wide reveal"><img src="assets/img/training.webp" alt="" loading="lazy"><figcaption data-i18n="g5">Building knowledge and skills</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- GENEVA -->
+      <section class="section geneva" id="geneva">
+        <div class="container geneva-grid">
+          <div class="geneva-copy reveal">
+            <p class="eyebrow" data-i18n="genevaEyebrow">International Geneva</p>
+            <h2 data-i18n="genevaTitle">At the heart of global diplomacy and human rights</h2>
+            <p data-i18n="genevaBody">From Geneva, we work alongside the United Nations, international organisations, diplomatic missions, academic institutions and civil society, while keeping our independence and non-profit character.</p>
+            <ul class="check-list">
+              <li><svg class="icon"><use href="#i-globe"/></svg><span data-i18n="gl1">United Nations and human rights bodies</span></li>
+              <li><svg class="icon"><use href="#i-handshake"/></svg><span data-i18n="gl2">Diplomatic missions and international organisations</span></li>
+              <li><svg class="icon"><use href="#i-cap"/></svg><span data-i18n="gl3">Universities and research institutions</span></li>
+              <li><svg class="icon"><use href="#i-users"/></svg><span data-i18n="gl4">Civil society and human rights defenders</span></li>
+            </ul>
+          </div>
+          <div class="geneva-media reveal">
+            <img src="assets/img/assembly.webp" alt="" loading="lazy">
+            <div class="geneva-tag"><svg class="icon"><use href="#i-globe"/></svg><span data-i18n="genevaTag">Multilateral dialogue</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRINCIPLES -->
+      <section class="section principles">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="prinEyebrow">Our principles</p>
+            <h2 data-i18n="prinTitle">How we work</h2>
+          </div>
+          <div class="principle-grid">
+            <article class="principle reveal"><svg class="icon-lg"><use href="#i-shield"/></svg><h3 data-i18n="p1t">Independence</h3><p data-i18n="p1d">We accept no support that would compromise our independence, impartiality or credibility.</p></article>
+            <article class="principle reveal"><svg class="icon-lg"><use href="#i-eye"/></svg><h3 data-i18n="p2t">Integrity and transparency</h3><p data-i18n="p2d">We manage our finances responsibly and transparently, in line with Swiss law.</p></article>
+            <article class="principle reveal"><svg class="icon-lg"><use href="#i-scale"/></svg><h3 data-i18n="p3t">Equality and non-discrimination</h3><p data-i18n="p3d">Human rights, equality and peaceful dialogue guide everything we do.</p></article>
+            <article class="principle reveal"><svg class="icon-lg"><use href="#i-heart"/></svg><h3 data-i18n="p4t">Public benefit</h3><p data-i18n="p4d">All our resources serve our statutory purposes. No profits are ever distributed.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- GOVERNANCE -->
+      <section class="section governance" id="governance">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="govEyebrow">Governance</p>
+            <h2 data-i18n="govTitle">Accountable and democratic</h2>
+            <p data-i18n="govIntro">Our bodies work together to ensure transparency, accountability and democratic decision-making.</p>
+          </div>
+          <ol class="gov-steps">
+            <li class="reveal"><span class="gov-num">1</span><h3 data-i18n="gov1t">General Assembly</h3><p data-i18n="gov1d">Our highest authority. It meets at least once a year to approve reports and accounts, elect the Management Committee and set our strategic direction.</p></li>
+            <li class="reveal"><span class="gov-num">2</span><h3 data-i18n="gov2t">Management Committee</h3><p data-i18n="gov2d">At least three members, elected for renewable two-year terms, who carry out the Assembly's decisions and run our programmes.</p></li>
+            <li class="reveal"><span class="gov-num">3</span><h3 data-i18n="gov3t">Independent audit</h3><p data-i18n="gov3d">An independent auditor or financial reviewer examines the annual accounts and reports to the General Assembly.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- GET INVOLVED -->
+      <section class="section involved" id="involved">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow eyebrow-light" data-i18n="invEyebrow">Get involved</p>
+            <h2 data-i18n="invTitle">Join us in building dialogue and dignity</h2>
+          </div>
+          <div class="involve-grid">
+            <article class="involve-card reveal">
+              <img src="assets/img/network.webp" alt="" loading="lazy">
+              <div class="involve-body">
+                <h3 data-i18n="inv1t">Become a member</h3>
+                <p data-i18n="inv1d">Membership is open to individuals and organisations that share our values. Categories include founding, ordinary, honorary and institutional members.</p>
+                <a class="link-arrow" href="#contact"><span data-i18n="inv1c">Apply for membership</span><svg class="icon flip"><use href="#i-arrow"/></svg></a>
+              </div>
+            </article>
+            <article class="involve-card reveal">
+              <img src="assets/img/documentation.webp" alt="" loading="lazy">
+              <div class="involve-body">
+                <h3 data-i18n="inv2t">Partner with us</h3>
+                <p data-i18n="inv2d">We cooperate with organisations, universities and institutions whose goals are compatible with ours.</p>
+                <a class="link-arrow" href="#contact"><span data-i18n="inv2c">Propose a partnership</span><svg class="icon flip"><use href="#i-arrow"/></svg></a>
+              </div>
+            </article>
+            <article class="involve-card reveal">
+              <img src="assets/img/cooperation.webp" alt="" loading="lazy">
+              <div class="involve-body">
+                <h3 data-i18n="inv3t">Support our work</h3>
+                <p data-i18n="inv3d">Donations, grants and sponsorships fund our research, dialogue and advocacy, and never compromise our independence.</p>
+                <a class="link-arrow" href="#contact"><span data-i18n="inv3c">Make a contribution</span><svg class="icon flip"><use href="#i-arrow"/></svg></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section contact" id="contact">
+        <div class="container contact-grid">
+          <div class="reveal">
+            <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
+            <h2 data-i18n="contactTitle">Let's talk</h2>
+            <p class="contact-lead" data-i18n="contactBody">Whether you are a researcher, a human rights defender, a partner institution or a member of the Afghan community, we would be glad to hear from you.</p>
+            <ul class="contact-list">
+              <li><svg class="icon"><use href="#i-pin"/></svg><div><span class="label" data-i18n="contactSeat">Registered seat</span><span data-i18n="contactLoc">Canton of Geneva, Switzerland</span></div></li>
+              <li><svg class="icon"><use href="#i-mail"/></svg><div><span class="label" data-i18n="contactEmail">Email</span><a class="js-email" href="mailto:info@gcnhr.org" dir="ltr">info@gcnhr.org</a></div></li>
+            </ul>
+          </div>
+          <form class="contact-form reveal" id="contact-form" novalidate>
+            <div class="field"><label for="f-name" data-i18n="formName">Full name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="f-email" data-i18n="formEmail">Email address</label><input id="f-email" name="email" type="email" autocomplete="email" dir="ltr" required></div>
+            <div class="field">
+              <label for="f-topic" data-i18n="formTopic">Subject</label>
+              <select id="f-topic" name="topic">
+                <option value="general" data-i18n="topicGeneral">General enquiry</option>
+                <option value="membership" data-i18n="topicMember">Membership</option>
+                <option value="partnership" data-i18n="topicPartner">Partnership</option>
+                <option value="support" data-i18n="topicSupport">Support and donations</option>
+                <option value="media" data-i18n="topicMedia">Media</option>
+              </select>
+            </div>
+            <div class="field"><label for="f-msg" data-i18n="formMessage">Message</label><textarea id="f-msg" name="message" rows="5" required></textarea></div>
+            <button class="btn btn-green" type="submit"><span data-i18n="formSend">Send message</span><svg class="icon flip"><use href="#i-arrow"/></svg></button>
+            <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="footer-main">
-        <a class="brand brand-footer" href="#top" aria-label="GCNHR home">
-          <span class="brand-mark"><img src="Correct%20logo/2.png" alt="" loading="lazy"></span>
-          <span class="brand-name"><strong>GCNHR</strong><span data-i18n="brandDescriptor">Geneva Center for Negotiations<br>and Human Rights</span></span>
-        </a>
-        <p class="footer-motto" data-i18n="footerMotto">Dialogue opens a way forward.</p>
-        <div class="footer-location"><span class="location-mark" aria-hidden="true">+</span><span data-i18n="footerLocation">Geneva, Switzerland</span></div>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img src="assets/img/logo.webp" width="140" height="140" alt="GCNHR logo" loading="lazy">
+          <p data-i18n="footerTag">An independent, non-profit association based in Geneva, working for human rights, negotiation and peace.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <h4 data-i18n="footerExplore">Explore</h4>
+          <a href="#about" data-i18n="navAbout">About</a>
+          <a href="#mission" data-i18n="navMission">Mission</a>
+          <a href="#work" data-i18n="navWork">Our work</a>
+          <a href="#geneva" data-i18n="navGeneva">Geneva</a>
+          <a href="#governance" data-i18n="navGovernance">Governance</a>
+        </nav>
+        <div class="footer-nav">
+          <h4 data-i18n="navInvolved">Get involved</h4>
+          <a href="#involved" data-i18n="inv1t">Become a member</a>
+          <a href="#involved" data-i18n="inv2t">Partner with us</a>
+          <a href="#involved" data-i18n="inv3t">Support our work</a>
+          <a href="#contact" data-i18n="contactEyebrow">Contact</a>
+        </div>
+        <div class="footer-nav">
+          <h4 data-i18n="footerLang">Languages</h4>
+          <div class="footer-langs">
+            <button type="button" data-lang="en" lang="en">English</button>
+            <button type="button" data-lang="fr" lang="fr">Français</button>
+            <button type="button" data-lang="fa" lang="fa-AF">دری</button>
+            <button type="button" data-lang="ps" lang="ps">پښتو</button>
+            <button type="button" data-lang="uz" lang="uz">Oʻzbekcha</button>
+          </div>
+        </div>
       </div>
-      <div class="footer-bottom"><span>© <span id="year"></span> GCNHR</span><span data-i18n="footerNote">Independent · Non-profit · Public interest</span><a href="#top" data-i18n="backToTop">Back to top ↑</a></div>
+      <div class="container footer-bottom">
+        <span>© <span id="year">2026</span> GCNHR · <span data-i18n="rights">All rights reserved.</span></span>
+        <span data-i18n="footerLegal">Non-profit association under Art. 60 ff. of the Swiss Civil Code</span>
+        <a href="#top" data-i18n="backTop">Back to top ↑</a>
+      </div>
     </footer>
   </body>
 </html>
