@@ -6,7 +6,17 @@ A responsive, multilingual one-page website for GCNHR, an independent non-profit
 
 English, French, Dari, Pashto and Uzbek (Latin script). Dari and Pashto switch the page to a right-to-left layout and Persian-script fonts. The chosen language is remembered, and any language can be linked directly with `?lang=en|fr|fa|ps|uz`.
 
-## Editing the website (admin)
+## Editing the website
+
+### On the page
+
+Click **Login** in the site header (in the menu on phones) and sign in with your access token (see below). The page switches to edit mode:
+
+- Click any outlined text to change it. Switch language with the normal language buttons to edit that language; the English text is shown for reference.
+- Use **Change photo** on a picture to replace it (it is resized and optimised automatically).
+- The bar at the bottom shows unpublished changes. **Publish changes** saves everything; **Discard** throws away unpublished changes; **Full admin** opens the admin page.
+
+### Admin page
 
 Open `/admin/` on the live site (https://maiwand-ai.github.io/GCNHR/admin/) and sign in with a GitHub access token:
 
@@ -28,7 +38,8 @@ All editable content lives in `content/content.js`: `settings`, `images` (one pa
 - `index.html` – page structure
 - `styles.css` – design (colours taken from the logo: forest green, deep red, gold)
 - `content/content.js` – all texts, picture paths and settings (edited by the admin)
-- `admin/` – the admin page
+- `admin/` – the admin page; `admin/github.js` is the GitHub storage code shared with the on-page editor
+- `editor.js`, `editor.css` – the on-page editor (loaded only after Login)
 - `app.js` – language switching, mobile menu, scroll effects, contact form
 - `assets/img/` – web-optimised logo, emblem, favicon and photography (generic Unsplash photos, free licence)
 - `Correct logo/2.png` – original full-resolution logo (not loaded by the site)

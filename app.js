@@ -1,6 +1,9 @@
-// All editable content (texts, images, settings) comes from content/content.js,
-// which the admin page at /admin updates.
-const CONTENT = readPreview() || window.SITE_CONTENT || { settings: {}, images: {}, text: { en: {} } };
+// All editable content (texts, images, settings) comes from content/content.js.
+// It is changed from the admin page (/admin) or the on-page editor (editor.js).
+let CONTENT = readPreview() || window.SITE_CONTENT || { settings: {}, images: {}, text: { en: {} } };
+let SETTINGS = CONTENT.settings || {};
+let TEXT = CONTENT.text || { en: {} };
+const contactEmail = () => SETTINGS.contactEmail || "info@gcnhr.org";
 
 // "Preview" in the admin opens the site with ?preview=1 and the unpublished draft in localStorage.
 function readPreview() {
@@ -17,9 +20,6 @@ function readPreview() {
     return null;
   }
 }
-const SETTINGS = CONTENT.settings || {};
-const TEXT = CONTENT.text || { en: {} };
-const CONTACT_EMAIL = SETTINGS.contactEmail || "info@gcnhr.org";
 
 const RTL_LANGUAGES = new Set(["fa", "ps"]);
 const HTML_LANG = { en: "en", fr: "fr", fa: "fa-AF", ps: "ps", uz: "uz" };
@@ -80,11 +80,29 @@ function setLanguage(language, { persist = true } = {}) {
 }
 
 // Swap in images chosen in the admin; the src in index.html is the fallback.
-const IMAGES = CONTENT.images || {};
-document.querySelectorAll("[data-img]").forEach((img) => {
-  const src = IMAGES[img.dataset.img];
-  if (src && src !== img.getAttribute("src")) img.src = src;
-});
+function applyImages() {
+  const images = CONTENT.images || {};
+  document.querySelectorAll("[data-img]").forEach((img) => {
+    const src = images[img.dataset.img];
+    if (src && src !== img.getAttribute("src")) img.src = src;
+  });
+}
+
+function applyEmail() {
+  document.querySelectorAll(".js-email").forEach((a) => { a.href = `mailto:${contactEmail()}`; a.textContent = contactEmail(); });
+}
+
+// Replaces all content on the page, e.g. with fresh content loaded by the editor.
+function applyContent(content) {
+  CONTENT = content;
+  SETTINGS = content.settings || {};
+  TEXT = content.text || { en: {} };
+  applyImages();
+  applyEmail();
+  setLanguage(currentLanguage, { persist: false });
+}
+
+applyImages();
 
 langButtons.forEach((btn) => btn.addEventListener("click", () => setLanguage(btn.dataset.lang)));
 
@@ -164,9 +182,50 @@ form.addEventListener("submit", (event) => {
   const topic = form.elements.topic;
   const subject = `[GCNHR] ${topic.options[topic.selectedIndex].text}`;
   const body = `${form.elements.message.value.trim()}\n\n— ${form.elements.name.value.trim()} <${form.elements.email.value.trim()}>`;
-  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = `mailto:${contactEmail()}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   note.textContent = t("formSuccess");
 });
 
-document.querySelectorAll(".js-email").forEach((a) => { a.href = `mailto:${CONTACT_EMAIL}`; a.textContent = CONTACT_EMAIL; });
+applyEmail();
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// Interface used by the on-page editor.
+window.GCNHRSite = {
+  applyContent,
+  setLanguage,
+  t,
+  get language() { return currentLanguage; },
+  get content() { return CONTENT; },
+};
+
+// Login button: loads the on-page editor only when someone wants to edit.
+let editorLoading = null;
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = src;
+    script.onload = resolve;
+    script.onerror = () => reject(new Error(`Could not load ${src}`));
+    document.head.append(script);
+  });
+}
+function loadEditor() {
+  if (!editorLoading) {
+    const css = document.createElement("link");
+    css.rel = "stylesheet";
+    css.href = "editor.css";
+    document.head.append(css);
+    editorLoading = loadScript("admin/github.js").then(() => loadScript("editor.js"));
+  }
+  return editorLoading;
+}
+document.querySelectorAll(".js-login").forEach((btn) => btn.addEventListener("click", async (event) => {
+  event.preventDefault();
+  closeMenu();
+  try {
+    await loadEditor();
+    window.GCNHREditor.start();
+  } catch (error) {
+    alert(error.message);
+  }
+}));
