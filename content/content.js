@@ -169,7 +169,8 @@ window.SITE_CONTENT = {
       "footerLang": "Languages",
       "rights": "All rights reserved.",
       "footerLegal": "Non-profit association under Art. 60 ff. of the Swiss Civil Code",
-      "backTop": "Back to top ↑"
+      "backTop": "Back to top ↑",
+      "adminLink": "Admin"
     },
     "fr": {
       "skip": "Aller au contenu",
@@ -311,7 +312,8 @@ window.SITE_CONTENT = {
       "footerLang": "Langues",
       "rights": "Tous droits réservés.",
       "footerLegal": "Association à but non lucratif régie par les art. 60 ss du Code civil suisse",
-      "backTop": "Retour en haut ↑"
+      "backTop": "Retour en haut ↑",
+      "adminLink": "Administration"
     },
     "fa": {
       "skip": "رفتن به محتوای اصلی",
@@ -453,7 +455,8 @@ window.SITE_CONTENT = {
       "footerLang": "زبان‌ها",
       "rights": "همه حقوق محفوظ است.",
       "footerLegal": "انجمن غیرانتفاعی بر اساس ماده ۶۰ و مواد بعدی قانون مدنی سویس",
-      "backTop": "بازگشت به بالا ↑"
+      "backTop": "بازگشت به بالا ↑",
+      "adminLink": "مدیریت"
     },
     "ps": {
       "skip": "اصلي منځپانګې ته تګ",
@@ -595,7 +598,8 @@ window.SITE_CONTENT = {
       "footerLang": "ژبې",
       "rights": "ټول حقونه خوندي دي.",
       "footerLegal": "د سویس د مدني قانون د ۶۰ مادې او وروسته مادو له مخې غیرانتفاعي بنسټ",
-      "backTop": "بېرته پورته ↑"
+      "backTop": "بېرته پورته ↑",
+      "adminLink": "اداره"
     },
     "uz": {
       "skip": "Asosiy mazmunga oʻtish",
@@ -737,7 +741,8 @@ window.SITE_CONTENT = {
       "footerLang": "Tillar",
       "rights": "Barcha huquqlar himoyalangan.",
       "footerLegal": "Shveytsariya Fuqarolik kodeksining 60-moddasi va keyingi moddalari asosidagi notijorat uyushma",
-      "backTop": "Yuqoriga ↑"
+      "backTop": "Yuqoriga ↑",
+      "adminLink": "Boshqaruv"
     }
   }
 };

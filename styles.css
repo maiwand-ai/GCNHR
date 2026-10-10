@@ -309,6 +309,7 @@ html[dir="rtl"] .field input[dir="ltr"] { text-align: right; }
 .footer-langs button[aria-pressed="true"] { color: var(--gold-300); font-weight: 600; }
 .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 30px; padding: 26px 0 32px; border-top: 1px solid rgba(255,255,255,.12); font-size: 13px; color: rgba(255,255,255,.55); }
 .footer-bottom a { text-decoration: none; }
+.footer-links { display: flex; gap: 22px; }
 .footer-bottom a:hover { color: var(--gold-300); }
 
 /* Admin preview banner */
