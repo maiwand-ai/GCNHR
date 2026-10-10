@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>GCNHR Admin</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;600&family=Noto+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+    <script src="admin.js" defer></script>
+  </head>
+  <body>
+    <!-- Sign in -->
+    <main class="login" id="login-view">
+      <form class="login-card" id="login-form">
+        <img src="../assets/img/logo.webp" width="120" height="120" alt="GCNHR">
+        <h1>Website admin</h1>
+        <p class="muted">Sign in with a GitHub access token that can write to the website repository <strong id="repo-name"></strong>.</p>
+        <label for="token">Access token</label>
+        <input id="token" type="password" autocomplete="current-password" placeholder="github_pat_…" required>
+        <label class="check"><input type="checkbox" id="remember"> Stay signed in on this device</label>
+        <button class="btn btn-primary" type="submit">Sign in</button>
+        <p class="error" id="login-error" role="alert"></p>
+        <details class="help">
+          <summary>How do I get an access token?</summary>
+          <ol>
+            <li>Sign in to GitHub as the owner of the repository.</li>
+            <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Fine-grained tokens → Generate new token</a>.</li>
+            <li>Name it, e.g. “GCNHR website”, and choose an expiry date.</li>
+            <li>Under <em>Repository access</em> choose <em>Only select repositories</em> and pick the website repository.</li>
+            <li>Under <em>Permissions → Repository permissions</em>, set <em>Contents</em> to <em>Read and write</em>.</li>
+            <li>Click <em>Generate token</em>, copy it and paste it above. Keep it private, like a password.</li>
+          </ol>
+          <p class="muted">Collaborators who don't own the repository can use a classic token with the <em>repo</em> scope instead.</p>
+        </details>
+      </form>
+    </main>
+
+    <!-- Editor -->
+    <div class="app" id="app-view" hidden>
+      <header class="topbar">
+        <div class="brand"><img src="../assets/img/emblem.webp" width="36" height="36" alt=""><span><strong>GCNHR</strong> Admin</span></div>
+        <nav class="tabs" role="tablist">
+          <button role="tab" data-tab="texts" aria-selected="true">Texts</button>
+          <button role="tab" data-tab="images" aria-selected="false">Images</button>
+          <button role="tab" data-tab="settings" aria-selected="false">Settings</button>
+        </nav>
+        <div class="top-actions">
+          <span class="status" id="status"></span>
+          <button class="btn btn-ghost" id="preview-btn" type="button">Preview</button>
+          <button class="btn btn-primary" id="publish-btn" type="button" disabled>Publish changes</button>
+          <button class="btn btn-link" id="logout-btn" type="button">Sign out</button>
+        </div>
+      </header>
+
+      <div class="notice" id="notice" hidden></div>
+
+      <!-- Texts -->
+      <section class="panel" id="panel-texts">
+        <div class="toolbar">
+          <div class="lang-tabs" id="lang-tabs"></div>
+          <input class="search" id="search" type="search" placeholder="Search texts…">
+        </div>
+        <div id="text-sections"></div>
+      </section>
+
+      <!-- Images -->
+      <section class="panel" id="panel-images" hidden>
+        <p class="muted intro">Choose a new picture for any slot. It is resized and optimised automatically, then uploaded when you publish. Landscape photos work best, except for the logo and emblem.</p>
+        <div class="image-grid" id="image-grid"></div>
+      </section>
+
+      <!-- Settings -->
+      <section class="panel" id="panel-settings" hidden>
+        <div class="settings-card">
+          <h2>Contact</h2>
+          <label for="set-email">Contact email</label>
+          <input id="set-email" type="email" data-setting="contactEmail">
+          <p class="hint">Used for the email link and the contact form.</p>
+        </div>
+        <div class="settings-card">
+          <h2>Language</h2>
+          <label for="set-lang">Default language for new visitors</label>
+          <select id="set-lang" data-setting="defaultLanguage">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="fa">دری (Dari)</option>
+            <option value="ps">پښتو (Pashto)</option>
+            <option value="uz">Oʻzbekcha (Uzbek)</option>
+          </select>
+        </div>
+        <div class="settings-card">
+          <h2>Key figures (About section)</h2>
+          <div class="stats-grid">
+            <div><label for="set-fact1">Figure 1</label><input id="set-fact1" data-stat="fact1"></div>
+            <div><label for="set-fact2">Figure 2</label><input id="set-fact2" data-stat="fact2"></div>
+            <div><label for="set-fact3">Figure 3</label><input id="set-fact3" data-stat="fact3"></div>
+            <div><label for="set-fact4">Figure 4</label><input id="set-fact4" data-stat="fact4"></div>
+          </div>
+          <p class="hint">The labels under each figure are edited in Texts → About.</p>
+        </div>
+        <div class="settings-card">
+          <h2>Publishing</h2>
+          <p class="hint">Published changes go live about 1–2 minutes after you click <em>Publish changes</em>. Visitors' browsers may keep the old version for up to 10 minutes. Every publish is saved in the repository history, so earlier versions can always be restored.</p>
+          <p><a id="history-link" target="_blank" rel="noopener">View change history on GitHub ↗</a></p>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Vazirmatn:wght@400;500;700;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="assets/img/hero-negotiation.webp">
     <link rel="stylesheet" href="styles.css">
-    <script src="translations.js" defer></script>
+    <script src="content/content.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -53,7 +53,7 @@
     <header class="site-header" id="site-header">
       <div class="container header-inner">
         <a class="brand" href="#top" aria-label="GCNHR">
-          <img class="brand-emblem" src="assets/img/emblem.webp" width="56" height="56" alt="">
+          <img data-img="emblem" class="brand-emblem" src="assets/img/emblem.webp" width="56" height="56" alt="">
           <span class="brand-text">
             <strong>GCNHR</strong>
             <span data-i18n="brandName">Geneva Center for Negotiations and Human Rights</span>
@@ -87,7 +87,7 @@
     <main id="main">
       <!-- HERO -->
       <section class="hero" id="top">
-        <img class="hero-bg" src="assets/img/hero-negotiation.webp" alt="" fetchpriority="high">
+        <img data-img="hero" class="hero-bg" src="assets/img/hero-negotiation.webp" alt="" fetchpriority="high">
         <div class="hero-shade"></div>
         <div class="container hero-content">
           <p class="eyebrow eyebrow-light" data-i18n="heroEyebrow">Geneva · Switzerland · Founded 2026</p>
@@ -110,9 +110,9 @@
       <section class="section about" id="about">
         <div class="container about-grid">
           <div class="about-media reveal">
-            <img class="about-photo" src="assets/img/cooperation.webp" alt="" loading="lazy">
+            <img data-img="about" class="about-photo" src="assets/img/cooperation.webp" alt="" loading="lazy">
             <div class="about-logo-card">
-              <img src="assets/img/logo.webp" width="320" height="320" alt="GCNHR logo" loading="lazy">
+              <img data-img="logo" src="assets/img/logo.webp" width="320" height="320" alt="GCNHR logo" loading="lazy">
             </div>
           </div>
           <div class="about-copy reveal">
@@ -121,10 +121,10 @@
             <p data-i18n="aboutP1">GCNHR was founded in Geneva in 2026 as a non-profit association under Articles 60 and following of the Swiss Civil Code. Our activities serve the public interest and humanitarian purposes only, never commercial goals.</p>
             <p data-i18n="aboutP2">We bring together Afghans, civil society organisations, human rights defenders, legal professionals, researchers, academics and international organisations to share knowledge, document realities and pursue peaceful solutions.</p>
             <dl class="facts">
-              <div><dt data-num="2026">2026</dt><dd data-i18n="fact1">Founded in Geneva</dd></div>
-              <div><dt data-num="8">8</dt><dd data-i18n="fact2">Strategic objectives</dd></div>
-              <div><dt data-num="9">9</dt><dd data-i18n="fact3">Areas of activity</dd></div>
-              <div><dt data-num="100%">100%</dt><dd data-i18n="fact4">Of resources devoted to our mission</dd></div>
+              <div><dt data-stat="fact1">2026</dt><dd data-i18n="fact1">Founded in Geneva</dd></div>
+              <div><dt data-stat="fact2">8</dt><dd data-i18n="fact2">Strategic objectives</dd></div>
+              <div><dt data-stat="fact3">9</dt><dd data-i18n="fact3">Areas of activity</dd></div>
+              <div><dt data-stat="fact4">100%</dt><dd data-i18n="fact4">Of resources devoted to our mission</dd></div>
             </dl>
           </div>
         </div>
@@ -140,7 +140,7 @@
           </div>
           <div class="objectives">
             <article class="objective objective-feature reveal">
-              <img src="assets/img/human-rights.webp" alt="" loading="lazy">
+              <img data-img="objWomen" src="assets/img/human-rights.webp" alt="" loading="lazy">
               <div class="objective-body">
                 <span class="obj-num">01</span>
                 <h3 data-i18n="obj1t">Afghan women's human rights</h3>
@@ -163,7 +163,7 @@
               <p data-i18n="obj4d">Supporting peaceful, civic approaches to preventing and resolving conflict, and preventing violence, discrimination, extremism and injustice.</p>
             </article>
             <article class="objective objective-feature reveal">
-              <img src="assets/img/children.webp" alt="" loading="lazy">
+              <img data-img="objChildren" src="assets/img/children.webp" alt="" loading="lazy">
               <div class="objective-body">
                 <span class="obj-num">05</span>
                 <h3 data-i18n="obj5t">Children's rights</h3>
@@ -196,7 +196,7 @@
 
       <!-- QUOTE BAND -->
       <section class="quote-band">
-        <img src="assets/img/peace.webp" alt="" loading="lazy">
+        <img data-img="quote" src="assets/img/peace.webp" alt="" loading="lazy">
         <div class="quote-shade"></div>
         <div class="container quote-inner reveal">
           <svg class="quote-mark" viewBox="0 0 48 36" aria-hidden="true"><path d="M0 36V20C0 8 7 1 19 0v7c-6 1.5-9 5.5-9 12h9v17zm29 0V20c0-12 7-19 19-20v7c-6 1.5-9 5.5-9 12h9v17z"/></svg>
@@ -237,11 +237,11 @@
             <h2 data-i18n="galleryTitle">The causes we stand for</h2>
           </div>
           <div class="gallery">
-            <figure class="g-item g-tall reveal"><img src="assets/img/reconciliation.webp" alt="" loading="lazy"><figcaption data-i18n="g1">Peace and reconciliation</figcaption></figure>
-            <figure class="g-item g-wide reveal"><img src="assets/img/dialogue.webp" alt="" loading="lazy"><figcaption data-i18n="g2">Dialogue across differences</figcaption></figure>
-            <figure class="g-item reveal"><img src="assets/img/education.webp" alt="" loading="lazy"><figcaption data-i18n="g3">Every child's right to learn</figcaption></figure>
-            <figure class="g-item reveal"><img src="assets/img/research.webp" alt="" loading="lazy"><figcaption data-i18n="g4">Evidence and documentation</figcaption></figure>
-            <figure class="g-item g-wide reveal"><img src="assets/img/training.webp" alt="" loading="lazy"><figcaption data-i18n="g5">Building knowledge and skills</figcaption></figure>
+            <figure class="g-item g-tall reveal"><img data-img="gallery1" src="assets/img/reconciliation.webp" alt="" loading="lazy"><figcaption data-i18n="g1">Peace and reconciliation</figcaption></figure>
+            <figure class="g-item g-wide reveal"><img data-img="gallery2" src="assets/img/dialogue.webp" alt="" loading="lazy"><figcaption data-i18n="g2">Dialogue across differences</figcaption></figure>
+            <figure class="g-item reveal"><img data-img="gallery3" src="assets/img/education.webp" alt="" loading="lazy"><figcaption data-i18n="g3">Every child's right to learn</figcaption></figure>
+            <figure class="g-item reveal"><img data-img="gallery4" src="assets/img/research.webp" alt="" loading="lazy"><figcaption data-i18n="g4">Evidence and documentation</figcaption></figure>
+            <figure class="g-item g-wide reveal"><img data-img="gallery5" src="assets/img/training.webp" alt="" loading="lazy"><figcaption data-i18n="g5">Building knowledge and skills</figcaption></figure>
           </div>
         </div>
       </section>
@@ -261,7 +261,7 @@
             </ul>
           </div>
           <div class="geneva-media reveal">
-            <img src="assets/img/assembly.webp" alt="" loading="lazy">
+            <img data-img="geneva" src="assets/img/assembly.webp" alt="" loading="lazy">
             <div class="geneva-tag"><svg class="icon"><use href="#i-globe"/></svg><span data-i18n="genevaTag">Multilateral dialogue</span></div>
           </div>
         </div>
@@ -308,7 +308,7 @@
           </div>
           <div class="involve-grid">
             <article class="involve-card reveal">
-              <img src="assets/img/network.webp" alt="" loading="lazy">
+              <img data-img="involve1" src="assets/img/network.webp" alt="" loading="lazy">
               <div class="involve-body">
                 <h3 data-i18n="inv1t">Become a member</h3>
                 <p data-i18n="inv1d">Membership is open to individuals and organisations that share our values. Categories include founding, ordinary, honorary and institutional members.</p>
@@ -316,7 +316,7 @@
               </div>
             </article>
             <article class="involve-card reveal">
-              <img src="assets/img/documentation.webp" alt="" loading="lazy">
+              <img data-img="involve2" src="assets/img/documentation.webp" alt="" loading="lazy">
               <div class="involve-body">
                 <h3 data-i18n="inv2t">Partner with us</h3>
                 <p data-i18n="inv2d">We cooperate with organisations, universities and institutions whose goals are compatible with ours.</p>
@@ -324,7 +324,7 @@
               </div>
             </article>
             <article class="involve-card reveal">
-              <img src="assets/img/cooperation.webp" alt="" loading="lazy">
+              <img data-img="involve3" src="assets/img/cooperation.webp" alt="" loading="lazy">
               <div class="involve-body">
                 <h3 data-i18n="inv3t">Support our work</h3>
                 <p data-i18n="inv3d">Donations, grants and sponsorships fund our research, dialogue and advocacy, and never compromise our independence.</p>
@@ -371,7 +371,7 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <img src="assets/img/logo.webp" width="140" height="140" alt="GCNHR logo" loading="lazy">
+          <img data-img="logo" src="assets/img/logo.webp" width="140" height="140" alt="GCNHR logo" loading="lazy">
           <p data-i18n="footerTag">An independent, non-profit association based in Geneva, working for human rights, negotiation and peace.</p>
         </div>
         <nav class="footer-nav" aria-label="Footer">

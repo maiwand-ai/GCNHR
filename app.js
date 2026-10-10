@@ -1,5 +1,25 @@
-// Contact address used by the email link and the contact form.
-const CONTACT_EMAIL = "info@gcnhr.org";
+// All editable content (texts, images, settings) comes from content/content.js,
+// which the admin page at /admin updates.
+const CONTENT = readPreview() || window.SITE_CONTENT || { settings: {}, images: {}, text: { en: {} } };
+
+// "Preview" in the admin opens the site with ?preview=1 and the unpublished draft in localStorage.
+function readPreview() {
+  if (!new URLSearchParams(window.location.search).has("preview")) return null;
+  try {
+    const draft = JSON.parse(localStorage.getItem("gcnhr-preview"));
+    if (!draft) return null;
+    const banner = document.createElement("div");
+    banner.className = "preview-banner";
+    banner.textContent = "Preview of unpublished changes";
+    document.body.prepend(banner);
+    return draft;
+  } catch {
+    return null;
+  }
+}
+const SETTINGS = CONTENT.settings || {};
+const TEXT = CONTENT.text || { en: {} };
+const CONTACT_EMAIL = SETTINGS.contactEmail || "info@gcnhr.org";
 
 const RTL_LANGUAGES = new Set(["fa", "ps"]);
 const HTML_LANG = { en: "en", fr: "fr", fa: "fa-AF", ps: "ps", uz: "uz" };
@@ -12,7 +32,7 @@ const langButtons = document.querySelectorAll("[data-lang]");
 let currentLanguage = "en";
 
 function t(key) {
-  return (TRANSLATIONS[currentLanguage] && TRANSLATIONS[currentLanguage][key]) ?? TRANSLATIONS.en[key] ?? "";
+  return (TEXT[currentLanguage] && TEXT[currentLanguage][key]) || (TEXT.en && TEXT.en[key]) || "";
 }
 
 function readStoredLanguage() {
@@ -24,7 +44,7 @@ function storeLanguage(language) {
 }
 
 function setLanguage(language, { persist = true } = {}) {
-  if (!TRANSLATIONS[language]) language = "en";
+  if (!HTML_LANG[language]) language = "en";
   currentLanguage = language;
 
   const root = document.documentElement;
@@ -37,8 +57,11 @@ function setLanguage(language, { persist = true } = {}) {
   });
 
   const easternDigits = RTL_LANGUAGES.has(language);
-  document.querySelectorAll("[data-num]").forEach((el) => {
-    el.textContent = easternDigits ? el.dataset.num.replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]).replace("%", "٪") : el.dataset.num;
+  const stats = SETTINGS.stats || {};
+  document.querySelectorAll("[data-stat]").forEach((el) => {
+    if (el.dataset.default === undefined) el.dataset.default = el.textContent;
+    const value = String(stats[el.dataset.stat] || el.dataset.default);
+    el.textContent = easternDigits ? value.replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]).replace("%", "٪") : value;
   });
 
   document.title = `GCNHR | ${t("brandName")}`;
@@ -56,10 +79,17 @@ function setLanguage(language, { persist = true } = {}) {
   if (persist) storeLanguage(language);
 }
 
+// Swap in images chosen in the admin; the src in index.html is the fallback.
+const IMAGES = CONTENT.images || {};
+document.querySelectorAll("[data-img]").forEach((img) => {
+  const src = IMAGES[img.dataset.img];
+  if (src && src !== img.getAttribute("src")) img.src = src;
+});
+
 langButtons.forEach((btn) => btn.addEventListener("click", () => setLanguage(btn.dataset.lang)));
 
 const urlLanguage = new URLSearchParams(window.location.search).get("lang");
-setLanguage(urlLanguage || readStoredLanguage() || "en", { persist: Boolean(urlLanguage) });
+setLanguage(urlLanguage || readStoredLanguage() || SETTINGS.defaultLanguage || "en", { persist: Boolean(urlLanguage) });
 
 // Header background once the page scrolls past the hero top.
 const updateHeader = () => header.classList.toggle("is-scrolled", window.scrollY > 40);

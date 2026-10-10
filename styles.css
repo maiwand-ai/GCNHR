@@ -311,6 +311,9 @@ html[dir="rtl"] .field input[dir="ltr"] { text-align: right; }
 .footer-bottom a { text-decoration: none; }
 .footer-bottom a:hover { color: var(--gold-300); }
 
+/* Admin preview banner */
+.preview-banner { position: fixed; z-index: 100; inset: auto 16px 16px auto; padding: 10px 16px; border-radius: 999px; background: var(--red); color: var(--white); font: 600 14px/1.2 var(--font-sans); box-shadow: var(--shadow); }
+
 /* Reveal animation */
 /* Content is only hidden once app.js has set up the observer, so a script failure never hides it. */
 .reveal-ready .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s ease; }
