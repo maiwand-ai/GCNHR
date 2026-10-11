@@ -64,7 +64,8 @@ function setLanguage(language, { persist = true } = {}) {
     el.textContent = easternDigits ? value.replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]).replace("%", "٪") : value;
   });
 
-  document.title = `GCNHR | ${t("brandName")}`;
+  const pageTitle = document.querySelector(".feature-main h1")?.textContent;
+  document.title = pageTitle ? `${pageTitle} | GCNHR` : `GCNHR | ${t("brandName")}`;
   document.querySelector('meta[name="description"]')?.setAttribute("content", t("heroLead"));
   menuToggle.setAttribute("aria-label", t("menu"));
 
@@ -77,6 +78,7 @@ function setLanguage(language, { persist = true } = {}) {
   } catch { /* some browsers block this on pages opened from disk */ }
 
   if (persist) storeLanguage(language);
+  window.dispatchEvent(new Event("gcnhr:content"));
 }
 
 // Swap in images chosen in the admin; the src in index.html is the fallback.
@@ -161,7 +163,7 @@ if ("IntersectionObserver" in window) {
 const form = document.getElementById("contact-form");
 const note = document.getElementById("form-note");
 
-form.addEventListener("submit", (event) => {
+form?.addEventListener("submit", (event) => {
   event.preventDefault();
   const fields = ["name", "email", "message"].map((name) => form.elements[name]);
   let valid = true;

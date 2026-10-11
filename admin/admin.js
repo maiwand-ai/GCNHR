@@ -101,13 +101,14 @@ function showApp() {
   renderTexts();
   renderImages();
   renderSettings();
+  renderFeatureItems();
   updateStatus();
 }
 
 document.querySelectorAll("[data-tab]").forEach((tab) => {
   tab.addEventListener("click", () => {
     document.querySelectorAll("[data-tab]").forEach((t) => t.setAttribute("aria-selected", String(t === tab)));
-    ["texts", "images", "settings"].forEach((name) => { $(`#panel-${name}`).hidden = name !== tab.dataset.tab; });
+    ["texts", "images", "settings", "features"].forEach((name) => { $(`#panel-${name}`).hidden = name !== tab.dataset.tab; });
   });
 });
 
@@ -123,6 +124,7 @@ function countChanges() {
     const keys = new Set([...Object.keys(draft.text[code] || {}), ...Object.keys(original.text[code] || {})]);
     keys.forEach((k) => { if ((draft.text[code][k] || "") !== (original.text[code][k] || "")) count++; });
   });
+  if (JSON.stringify(draft.collections) !== JSON.stringify(original.collections)) count++;
   if (JSON.stringify(draft.settings) !== JSON.stringify(original.settings)) count++;
   return count;
 }
@@ -385,6 +387,7 @@ async function publish() {
     renderTexts();
     renderImages();
     renderSettings();
+  renderFeatureItems();
     updateStatus("Published", "ok");
     showNotice(`Published. The live site updates in about 1–2 minutes: <a href="../" target="_blank" rel="noopener">open the website ↗</a>. If you still see the old version, refresh the page after a few minutes.`, "ok");
   } catch (error) {
@@ -412,3 +415,53 @@ function escapeHtml(text) {
     state.client = null;
   }
 })();
+
+/* Public feature content. Requests stay with the connected provider, never GitHub. */
+function renderFeatureItems() {
+  if (!state.draft) return;
+  state.draft.collections ||= {};
+  const kind = $("#collection-kind").value;
+  const language = $("#collection-language").value;
+  const items = state.draft.collections[kind] || [];
+  const wrap = $("#collection-items"); wrap.replaceChildren();
+  items.forEach((item, index) => {
+    const card = document.createElement("div"); card.className = "settings-card";
+    const fields = [["title", "Title", "text"], ["description", "Description", "textarea"]];
+    if (kind !== "team") fields.push(["date", "Date", "date"]);
+    fields.push(["category", kind === "team" ? "Role" : "Category", "text"]);
+    if (kind === "events") fields.push(["location", "Location / online", "text"]);
+    fields.push(["url", "Public page or document URL", "text"]);
+    fields.forEach(([key, title, type]) => {
+      const localized = key === "title" || key === "description";
+      const label = document.createElement("label"); label.htmlFor = `item-${index}-${key}`; label.textContent = title;
+      const input = document.createElement(type === "textarea" ? "textarea" : "input");
+      if (type !== "textarea") input.type = type;
+      input.id = label.htmlFor;
+      input.dir = localized && ["fa", "ps"].includes(language) ? "rtl" : "ltr";
+      input.value = localized ? (typeof item[key] === "string" ? (language === "en" ? item[key] : "") : item[key]?.[language] || "") : item[key] || "";
+      input.oninput = () => {
+        if (localized) {
+          if (typeof item[key] === "string") item[key] = {en:item[key]};
+          item[key] ||= {}; item[key][language] = input.value;
+        } else item[key] = input.value;
+        updateStatus();
+      };
+      card.append(label, input);
+    });
+    if (kind === "events") {
+      const label = document.createElement("label"); label.textContent = " Accept registration enquiries";
+      const input = document.createElement("input"); input.type = "checkbox"; input.checked = item.registrationOpen === true;
+      input.onchange = () => { item.registrationOpen = input.checked; updateStatus(); }; label.prepend(input); card.append(label);
+    }
+    const remove = document.createElement("button"); remove.type = "button"; remove.className = "btn btn-link"; remove.textContent = "Remove item";
+    remove.onclick = () => {items.splice(index,1); renderFeatureItems(); updateStatus();}; card.append(remove); wrap.append(card);
+  });
+}
+$("#collection-kind").addEventListener("change", renderFeatureItems);
+$("#collection-language").addEventListener("change", renderFeatureItems);
+$("#add-item").addEventListener("click", () => {
+  const kind = $("#collection-kind").value;
+  state.draft.collections ||= {}; state.draft.collections[kind] ||= [];
+  state.draft.collections[kind].push({title:{en:""}, description:{en:""}, url:""});
+  renderFeatureItems(); updateStatus();
+});

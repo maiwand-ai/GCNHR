@@ -130,3 +130,7 @@ label { display: block; font-weight: 600; font-size: 13px; color: var(--ink); ma
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .notice { margin: 12px 16px 0; }
 }
+
+#collection-items input[type="checkbox"] { width: auto; margin-inline-end: 8px; }
+#collection-items .settings-card { margin-top: 20px; background: var(--paper); }
+#panel-features .settings-card > label { margin-top: 14px; }

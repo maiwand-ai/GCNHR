@@ -400,3 +400,26 @@ html[dir="rtl"] .field input[dir="ltr"] { text-align: right; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal-ready .reveal { opacity: 1; transform: none; }
 }
+
+/* Additional pages share the existing typography, palette and spacing. */
+.feature-page .site-header { background: var(--paper); color: var(--ink); box-shadow: 0 1px 0 var(--line); }
+.feature-page .brand-text, .feature-page .primary-nav a:not(.nav-cta) { color: var(--green-900); }
+.feature-page .login-btn { color: var(--green-900); border-color: var(--line); }
+.feature-main { padding-top: var(--header-h); min-height: 65vh; }
+.feature-main h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-bottom: 24px; }
+.feature-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.feature-links a { text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 10px 20px; color: var(--green-800); background: var(--white); }
+.feature-links a:hover { border-color: var(--green-700); background: var(--gold-100); }
+.feature-page-nav { margin-bottom: 48px; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-block: 28px; }
+.feature-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; }
+.feature-card h2, .feature-card h3 { font-size: 1.5rem; margin-bottom: 18px; }
+.feature-card p:last-child { margin-bottom: 0; }
+.feature-space { margin-top: 48px; }
+.feature-search { max-width: 480px; }
+.feature-consent { display: flex; align-items: flex-start; gap: 12px; font-size: .9rem; margin-block: 20px; }
+.feature-consent input { width: 20px; height: 20px; flex: none; margin-top: 5px; accent-color: var(--green-800); }
+.feature-delivery { font-size: .85rem; color: var(--muted); margin-top: 20px; }
+.feature-form { max-width: 720px; }
+@media (max-width: 900px) { .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .feature-grid { grid-template-columns: 1fr; } .feature-card { padding: 24px; } .feature-page-nav { gap: 8px; } .feature-links a { padding: 8px 14px; font-size: .85rem; } }
