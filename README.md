@@ -101,6 +101,7 @@ Run these checks from the repository directory:
 ```sh
 node tests/features.cjs
 node tests/admin-features.cjs
+node tests/navigation.cjs
 python3 tests/pages.py
 ```
 
@@ -111,3 +112,8 @@ public content filtering, event selection, language fallbacks, preview links,
 and admin content changes. The Python check validates page links, assets,
 anchors, translation keys and required membership fields. These checks do not
 verify browser rendering, actual email delivery, payments or provider dashboards.
+
+Navigation groups events, publications and news under **Our work**, team and
+transparency under **Governance**, and participation links under **Get involved**.
+The Membership button opens only the membership page. Dropdowns use native
+HTML disclosures, with outside-click dismissal and Escape focus restoration.

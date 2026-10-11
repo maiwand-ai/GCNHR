@@ -423,3 +423,24 @@ html[dir="rtl"] .field input[dir="ltr"] { text-align: right; }
 .feature-form { max-width: 720px; }
 @media (max-width: 900px) { .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .feature-grid { grid-template-columns: 1fr; } .feature-card { padding: 24px; } .feature-page-nav { gap: 8px; } .feature-links a { padding: 8px 14px; font-size: .85rem; } }
+
+/* Feature navigation grouped by purpose. Native details support touch and keyboard. */
+.primary-nav { gap: 18px; }
+.nav-group { position: relative; }
+.nav-group summary { display: flex; align-items: center; gap: 7px; list-style: none; cursor: pointer; font-size: 15px; font-weight: 500; padding: 6px 0; white-space: nowrap; }
+.nav-group summary::-webkit-details-marker { display: none; }
+.nav-group summary::after { content: ''; width: 6px; height: 6px; border-inline-end: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); margin-top: -3px; }
+.nav-group[open] summary::after { transform: rotate(225deg); margin-top: 3px; }
+.nav-submenu { position: absolute; inset-block-start: calc(100% + 12px); inset-inline-start: 0; min-width: 225px; padding: 10px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius-sm); box-shadow: var(--shadow); }
+.primary-nav .nav-submenu a { display: block; padding: 10px 14px; border-radius: 6px; white-space: normal; }
+.primary-nav .nav-submenu a::after { display: none; }
+.primary-nav .nav-submenu a:hover, .primary-nav .nav-submenu a[aria-current="page"] { background: var(--gold-100); color: var(--green-800); }
+@media (min-width: 1025px) and (max-width: 1180px) { .primary-nav { gap: 10px; } .nav-group summary { font-size: 14px; } }
+@media (max-width: 1024px) {
+  .primary-nav { gap: 0; max-height: calc(100dvh - var(--header-h)); overflow-y: auto; }
+  .nav-group { width: 100%; }
+  .nav-group summary { padding: 14px 0; font-size: 17px; border-bottom: 1px solid var(--line); justify-content: space-between; }
+  .nav-submenu { position: static; min-width: 0; padding: 0 0 8px 12px; border: 0; border-radius: 0; box-shadow: none; }
+  html[dir="rtl"] .nav-submenu { padding: 0 12px 8px 0; }
+  .primary-nav .nav-submenu a { font-size: 15px; padding: 10px 14px; }
+}

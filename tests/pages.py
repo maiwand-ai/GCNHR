@@ -45,3 +45,16 @@ for key in ('applicationEndpoint','newsletterEndpoint','donationUrl','memberPort
     assert content['settings'][key]=='', f'Unexpected non-placeholder service: {key}'
 assert all(not items for items in content['collections'].values()), 'Unexpected invented public content'
 print(f'Passed {len(pages)} page checks: assets, links, anchors, IDs, text keys, membership fields, consent and service placeholders.')
+
+import re
+for filename in pages:
+    if filename.startswith('admin/'): continue
+    html=Path(filename).read_text()
+    groups=re.findall(r'<details class="nav-group">.*?</details>',html)
+    assert len(groups)==3, f'Missing navigation groups: {filename}'
+    for group,expected in zip(groups,[['events.html','publications.html','news.html'],['transparency.html'],['membership.html','volunteer.html','partnerships.html','newsletter.html','donate.html']]):
+        links=re.findall(r'href="([^"]+)"',group)
+        assert len(links)==len(set(links)), f'Duplicate menu links: {filename}'
+        assert all(target in links for target in expected), f'Wrong navigation grouping: {filename}'
+    assert 'feature-page-nav' not in html, f'Redundant feature navigation: {filename}'
+print('Passed navigation grouping and duplicate-link checks on all 11 public pages.')

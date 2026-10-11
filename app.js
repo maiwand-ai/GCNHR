@@ -121,6 +121,7 @@ function closeMenu() {
   menuToggle.setAttribute("aria-expanded", "false");
   nav.classList.remove("is-open");
   header.classList.remove("menu-open");
+  nav.querySelectorAll(".nav-group").forEach(group => { group.open = false; });
 }
 
 menuToggle.addEventListener("click", () => {
@@ -130,7 +131,35 @@ menuToggle.addEventListener("click", () => {
   header.classList.toggle("menu-open", open);
 });
 nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+// Native disclosure menus work with mouse, touch and keyboard.
+const navGroups = [...nav.querySelectorAll(".nav-group")];
+navGroups.forEach(group => {
+  group.addEventListener("toggle", () => {
+    if (group.open) navGroups.forEach(other => { if (other !== group) other.open = false; });
+  });
+});
+document.addEventListener("click", event => {
+  if (!nav.contains(event.target)) navGroups.forEach(group => { group.open = false; });
+});
+document.addEventListener("focusin", event => {
+  navGroups.forEach(group => { if (!group.contains(event.target)) group.open = false; });
+});
+document.addEventListener("keydown", event => {
+  if (event.key !== "Escape") return;
+  const focusedGroup = navGroups.find(group => group.open && group.contains(document.activeElement));
+  if (focusedGroup) {
+    focusedGroup.open = false;
+    focusedGroup.querySelector("summary").focus();
+  } else {
+    const wasOpen = menuToggle.getAttribute("aria-expanded") === "true";
+    closeMenu();
+    if (wasOpen) menuToggle.focus();
+  }
+});
+nav.querySelectorAll('a[href]').forEach(link => {
+  const target = new URL(link.getAttribute("href"), location.href);
+  if (target.pathname === location.pathname && !target.hash) link.setAttribute("aria-current", "page");
+});
 
 // Highlight the nav link for the section in view.
 const navLinks = [...nav.querySelectorAll('a[href^="#"]')];
