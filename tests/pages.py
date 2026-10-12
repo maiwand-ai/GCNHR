@@ -58,3 +58,9 @@ for filename in pages:
         assert all(target in links for target in expected), f'Wrong navigation grouping: {filename}'
     assert 'feature-page-nav' not in html, f'Redundant feature navigation: {filename}'
 print('Passed navigation grouping and duplicate-link checks on all 11 public pages.')
+
+nav_keys=[key for key in content['text']['en'] if key.startswith('featureNav')]
+for language in ('fr','fa','ps','uz'):
+    for key in nav_keys:
+        assert content['text'][language].get(key), f'Missing dropdown translation: {language}/{key}'
+print('Passed all nine feature navigation translations in French, Dari, Pashto and Uzbek.')

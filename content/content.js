@@ -426,7 +426,16 @@ window.SITE_CONTENT = {
       "footerLegal": "Association à but non lucratif régie par les art. 60 ss du Code civil suisse",
       "backTop": "Retour en haut ↑",
       "adminLink": "Administration",
-      "loginBtn": "Connexion"
+      "loginBtn": "Connexion",
+      "featureNavMembership": "Adhésion",
+      "featureNavEvents": "Événements",
+      "featureNavPublications": "Publications",
+      "featureNavNews": "Actualités",
+      "featureNavTransparency": "Équipe et transparence",
+      "featureNavVolunteer": "Bénévolat",
+      "featureNavPartnerships": "Partenariats",
+      "featureNavNewsletter": "Lettre d’information",
+      "featureNavDonate": "Faire un don"
     },
     "fa": {
       "skip": "رفتن به محتوای اصلی",
@@ -570,7 +579,16 @@ window.SITE_CONTENT = {
       "footerLegal": "انجمن غیرانتفاعی بر اساس ماده ۶۰ و مواد بعدی قانون مدنی سویس",
       "backTop": "بازگشت به بالا ↑",
       "adminLink": "مدیریت",
-      "loginBtn": "ورود"
+      "loginBtn": "ورود",
+      "featureNavMembership": "عضویت",
+      "featureNavEvents": "رویدادها",
+      "featureNavPublications": "نشریات",
+      "featureNavNews": "خبرها",
+      "featureNavTransparency": "تیم و شفافیت",
+      "featureNavVolunteer": "کار داوطلبانه",
+      "featureNavPartnerships": "مشارکت‌ها",
+      "featureNavNewsletter": "خبرنامه",
+      "featureNavDonate": "کمک مالی"
     },
     "ps": {
       "skip": "اصلي منځپانګې ته تګ",
@@ -714,7 +732,16 @@ window.SITE_CONTENT = {
       "footerLegal": "د سویس د مدني قانون د ۶۰ مادې او وروسته مادو له مخې غیرانتفاعي بنسټ",
       "backTop": "بېرته پورته ↑",
       "adminLink": "اداره",
-      "loginBtn": "ننوتل"
+      "loginBtn": "ننوتل",
+      "featureNavMembership": "غړیتوب",
+      "featureNavEvents": "غونډې او پروګرامونه",
+      "featureNavPublications": "خپرونې",
+      "featureNavNews": "خبرونه",
+      "featureNavTransparency": "کاري ډله او روڼتیا",
+      "featureNavVolunteer": "رضاکارانه کار",
+      "featureNavPartnerships": "ملګرتیاوې",
+      "featureNavNewsletter": "خبرپاڼه",
+      "featureNavDonate": "مالي مرسته"
     },
     "uz": {
       "skip": "Asosiy mazmunga oʻtish",
@@ -858,7 +885,16 @@ window.SITE_CONTENT = {
       "footerLegal": "Shveytsariya Fuqarolik kodeksining 60-moddasi va keyingi moddalari asosidagi notijorat uyushma",
       "backTop": "Yuqoriga ↑",
       "adminLink": "Boshqaruv",
-      "loginBtn": "Kirish"
+      "loginBtn": "Kirish",
+      "featureNavMembership": "A’zolik",
+      "featureNavEvents": "Tadbirlar",
+      "featureNavPublications": "Nashrlar",
+      "featureNavNews": "Yangiliklar",
+      "featureNavTransparency": "Jamoa va shaffoflik",
+      "featureNavVolunteer": "Ko‘ngillilik",
+      "featureNavPartnerships": "Hamkorlik",
+      "featureNavNewsletter": "Axborot byulleteni",
+      "featureNavDonate": "Xayriya qilish"
     }
   },
   "collections": {
