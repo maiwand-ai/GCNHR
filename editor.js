@@ -146,14 +146,16 @@ window.GCNHREditor = (() => {
       button.type = "button";
       button.dataset.slot = key;
       button.innerHTML = `<span aria-hidden="true">📷</span> <span class="gcnhr-pic-label">Change photo</span>`;
-      const input = el("input");
+      // Keep the file input outside the button: cancelling the button click
+      // would also cancel the input's bubbled click and suppress its picker.
+      const input = el("input", "gcnhr-ui");
       input.type = "file";
       input.accept = "image/*";
       input.hidden = true;
-      button.append(input);
-      button.addEventListener("click", (e) => { e.preventDefault(); e.stopPropagation(); if (e.target !== input) input.click(); });
+      button.addEventListener("click", (e) => { e.preventDefault(); e.stopPropagation(); input.click(); });
       input.addEventListener("change", () => { if (input.files[0]) replacePicture(slot, input.files[0], button); input.value = ""; });
       img.insertAdjacentElement("afterend", button);
+      button.insertAdjacentElement("afterend", input);
     });
   }
 

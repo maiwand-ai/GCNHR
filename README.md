@@ -102,6 +102,7 @@ Run these checks from the repository directory:
 node tests/features.cjs
 node tests/admin-features.cjs
 node tests/navigation.cjs
+node tests/editor-photos.cjs
 python3 tests/pages.py
 ```
 
