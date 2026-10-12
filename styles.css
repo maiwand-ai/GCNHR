@@ -23,7 +23,7 @@
   --radius: 18px;
   --radius-sm: 10px;
   --shadow: 0 18px 50px -24px rgba(15, 46, 31, .35);
-  --header-h: 84px;
+  --header-h: 116px;
   --shade-dir: 90deg;
 
   color-scheme: light;
@@ -102,7 +102,7 @@ html[dir="rtl"] .link-arrow:hover .icon { transform: scaleX(-1) translateX(4px);
   box-shadow: 0 1px 0 var(--line), 0 10px 30px -20px rgba(0,0,0,.25);
   backdrop-filter: saturate(160%) blur(10px);
 }
-.header-inner { width: min(1500px, 100% - 48px); height: 100%; display: flex; align-items: center; gap: 28px; }
+.header-inner { height: calc(100% - 32px); display: flex; align-items: center; gap: 28px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-inline-end: auto; min-width: 0; flex-shrink: 0; }
 .brand-emblem { flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; background: var(--white); padding: 2px; box-shadow: 0 2px 10px rgba(0,0,0,.18); }
 .brand-text { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
@@ -326,7 +326,7 @@ html[dir="rtl"] .field input[dir="ltr"] { text-align: right; }
 .reveal-ready .reveal.is-visible { opacity: 1; transform: none; }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1440px) {
+@media (max-width: 1024px) {
   .header-inner { gap: 20px; }
 }
 
@@ -339,8 +339,8 @@ html[dir="rtl"] .field input[dir="ltr"] { text-align: right; }
   .login-btn { padding: 7px; }
 }
 
-@media (max-width: 1440px) {
-  :root { --header-h: 72px; }
+@media (max-width: 1024px) {
+  :root { --header-h: 104px; }
   .menu-toggle { display: flex; }
   .brand-text span { display: block; }
   .primary-nav {
@@ -437,11 +437,24 @@ html[dir="rtl"] .field input[dir="ltr"] { text-align: right; }
 .primary-nav .nav-submenu a { display: block; padding: 10px 14px; border-radius: 6px; white-space: normal; }
 .primary-nav .nav-submenu a::after { display: none; }
 .primary-nav .nav-submenu a:hover, .primary-nav .nav-submenu a[aria-current="page"] { background: var(--gold-100); color: var(--green-800); }
-@media (max-width: 1440px) {
+@media (max-width: 1024px) {
   .primary-nav { gap: 0; max-height: calc(100dvh - var(--header-h)); overflow-y: auto; }
   .nav-group { width: 100%; }
   .nav-group summary { padding: 14px 0; font-size: 17px; border-bottom: 1px solid var(--line); justify-content: space-between; }
   .nav-submenu { position: static; min-width: 0; padding: 0 0 8px 12px; border: 0; border-radius: 0; box-shadow: none; }
   html[dir="rtl"] .nav-submenu { padding: 0 12px 8px 0; }
   .primary-nav .nav-submenu a { font-size: 15px; padding: 10px 14px; }
+}
+
+
+/* Languages occupy a slim row above the navigation, aligned to the page grid. */
+.language-bar { height: 32px; border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent); }
+.language-bar-inner { height: 100%; display: flex; align-items: center; justify-content: flex-end; }
+.language-bar .lang-switch { border: 0; padding: 0; gap: 4px; }
+.language-bar .lang-switch button { padding: 3px 9px; font-size: 11px; }
+@media (min-width: 1025px) and (max-width: 1180px) {
+  .header-inner { gap: 12px; }
+  .brand-text > span { width: 190px; max-width: 190px; }
+  .primary-nav { gap: 10px; }
+  .primary-nav a, .nav-group summary { font-size: 13px; }
 }
