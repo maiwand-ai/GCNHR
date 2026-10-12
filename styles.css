@@ -433,7 +433,7 @@ html[dir="rtl"] .field input[dir="ltr"] { text-align: right; }
 .nav-group summary::-webkit-details-marker { display: none; }
 .nav-group summary::after { content: ''; width: 6px; height: 6px; border-inline-end: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); margin-top: -3px; }
 .nav-group[open] summary::after { transform: rotate(225deg); margin-top: 3px; }
-.nav-submenu { position: absolute; inset-block-start: calc(100% + 12px); inset-inline-start: 0; min-width: 225px; padding: 10px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius-sm); box-shadow: var(--shadow); }
+.nav-submenu { position: absolute; inset-block-start: calc(100% + 12px); inset-inline-start: 0; min-width: 225px; padding: 10px; background: rgba(250, 248, 243, .25); color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius-sm); box-shadow: var(--shadow); }
 .primary-nav .nav-submenu a { display: block; padding: 10px 14px; border-radius: 6px; white-space: normal; }
 .primary-nav .nav-submenu a::after { display: none; }
 .primary-nav .nav-submenu a:hover, .primary-nav .nav-submenu a[aria-current="page"] { background: var(--gold-100); color: var(--green-800); }
